@@ -6,5 +6,8 @@ class Ship :
 public:
 	Ship();
 	~Ship();
+
+private:
+	ID3DXMesh *mShip;
 };
 
