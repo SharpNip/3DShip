@@ -1,13 +1,10 @@
 #pragma once
 
-#include "Component.h"
-#include "Triangle.h"
-#include "Cube.h"
+#include "ResourceIDs.h"
 #include "TriGrid.h"
-#include "Ship.h"
+#include "Tunnel.h"
 
-class ShipRace :
-	public Component
+class ShipRace
 {
 public:
 	ShipRace();
@@ -20,6 +17,6 @@ public:
 
 private:
 	TriGrid* triGrid;
-	Ship *ship;
+	Tunnel* tunnel;
 };
 
