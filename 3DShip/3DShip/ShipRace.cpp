@@ -1,5 +1,4 @@
 #include "ShipRace.h"
-#include "ResourceIDs.h"
 
 ShipRace::ShipRace()
 {
