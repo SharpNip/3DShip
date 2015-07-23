@@ -3,13 +3,16 @@
 
 ShipRace::ShipRace()
 {
-	triGrid = new TriGrid(100.f, 100.f, 1.0f);
-	triGrid->SetPosition(0.f, 0.f, 0.f);
+	//triGrid = new TriGrid(100.f, 100.f, 1.0f);
+	//triGrid->SetPosition(0.f, 0.f, 0.f);
+
+	ship = new Ship();
 }
 
 ShipRace::~ShipRace()
 {
-	delete triGrid;
+	//delete triGrid;
+	delete ship;
 }
 
 void ShipRace::Start()
