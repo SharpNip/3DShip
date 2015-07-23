@@ -7,12 +7,11 @@ int WINAPI _tWinMain(HINSTANCE hInstance,
 	HINSTANCE prevHInstance,
 	LPTSTR cmd, int showCmd)
 {
-	Engine* engine = new Engine(hInstance, "SpriteApp");
+	Engine* engine = new Engine(hInstance, "ShipRace");
 	gEngine = engine;
 
 	engine->Init();
 
-	//Peggle* game = new Peggle();
 	ShipRace* game = new ShipRace();
 
 	int assert = gEngine->Run();

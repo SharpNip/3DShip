@@ -88,12 +88,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Obstacle.cpp" />
+    <ClCompile Include="Ship.cpp" />
     <ClCompile Include="ShipRace.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Score.cpp" />
+    <ClCompile Include="Tunnel.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Obstacle.h" />
     <ClInclude Include="ResourceIDs.h" />
+    <ClInclude Include="Ship.h" />
     <ClInclude Include="ShipRace.h" />
+    <ClInclude Include="Score.h" />
+    <ClInclude Include="Tunnel.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ikpFlac.dll" />

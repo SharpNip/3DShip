@@ -18,8 +18,6 @@ public:
 	void Stop();
 
 private:
-	Triangle* triangle;
-	Cube* cube;
 	TriGrid* triGrid;
 };
 
