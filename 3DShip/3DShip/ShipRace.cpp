@@ -2,8 +2,10 @@
 
 ShipRace::ShipRace()
 {
-	triGrid = new TriGrid(100.f, 100.f, 1.0f);
-	triGrid->SetPosition(0.f, 0.f, 0.f);
+	//triGrid = new TriGrid(100.f, 100.f, 1.0f);
+	//triGrid->SetPosition(0.f, 0.f, 0.f);
+
+	tunnel = new Tunnel();
 }
 
 ShipRace::~ShipRace()
