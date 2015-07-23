@@ -15,9 +15,10 @@ public:
 	void Draw();
 	void Stop();
 
-private:
-	
+	int GetNumFaces();
+	int GetNumVertices();
 
+private:
 	ID3DXMesh* mCylinder;
 
 	FLOAT Radius1;
