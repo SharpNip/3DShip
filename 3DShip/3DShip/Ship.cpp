@@ -25,38 +25,36 @@ void Ship::Update()
 void Ship::HandleInput(float dt)
 {
 	mDirection = D3DXVECTOR2(0, 0);
-	if (DIK_A)
+	if (gDInput->keyDown(DIK_A))
 	{
-		//mDirection.x = -1;
-		SetDirection(D3DXVECTOR2(-1, 0));
+		mDirection.x = -1;
 	}
 	
-	if (DIK_W)
+	if (gDInput->keyDown(DIK_W))
 	{
-		//mDirection.y = 1;
-		SetDirection(D3DXVECTOR2(0, 1));
+		mDirection.y = 1;
 	}
 
-	if (DIK_S)
+	if (gDInput->keyDown(DIK_S))
 	{
-		//mDirection.x = -1;
-		SetDirection(D3DXVECTOR2(0, -1));
+		mDirection.y = -1;
 	}
 
-	if (DIK_D)
+	if (gDInput->keyDown(DIK_D))
 	{
-		//mDirection.x = 1;
-		SetDirection(D3DXVECTOR2(1, 0));
+		mDirection.x = 1;
 	}
 	
-	std::cout << "DIRECTIONX: " << mDirection.x << std::endl;
-	std::cout << "DIRECTIONY: " << mDirection.y << std::endl;
+	//std::cout << "DIRECTIONX: " << mDirection.x << std::endl;
+	//std::cout << "DIRECTIONY: " << mDirection.y << std::endl;
 	Move(mDirection, dt);
 }
 
 void Ship::Move(D3DXVECTOR2 dir, float dt)
 {
-	SetPosition(GetPosition().x * mDirection.x * SHIP_SPEED, GetPosition().y * mDirection.y * SHIP_SPEED, GetPosition().z);
+	float tempX = GetPosition().x;
+	float  tempY = GetPosition().y;
+	SetPosition(tempX += mDirection.x * SHIP_SPEED * dt, tempY += mDirection.y * SHIP_SPEED * dt , GetPosition().z);
 }
 
 void Ship::OnCollision()
