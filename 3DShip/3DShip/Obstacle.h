@@ -1,5 +1,7 @@
 #pragma once
+
 #include "CustomModel.h"
+
 class Obstacle :
 	public CustomModel
 {
