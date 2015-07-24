@@ -4,6 +4,7 @@
 #include "TriGrid.h"
 #include "Tunnel.h"
 #include "Ship.h"
+#include "Score.h"
 
 class ShipRace
 {
@@ -17,8 +18,9 @@ public:
 	void Stop();
 
 private:
-	TriGrid* triGrid;
+	//TriGrid* triGrid;
 	Tunnel* tunnel;
 	Ship* ship;
+	Score* score;
 };
 

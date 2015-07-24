@@ -16,6 +16,7 @@ ShipRace::~ShipRace()
 	//delete triGrid;
 	delete tunnel;
 	delete score;
+	delete ship;
 }
 
 void ShipRace::Start()
