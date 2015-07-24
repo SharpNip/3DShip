@@ -55,16 +55,16 @@ float SumOfRadialSineWave(float x, float z)
 	return sum;
 }
 
-float4 GetColorFromHeight(float y)
+float4 GetColorFromZ(float z)
 {
-	if (abs(y) <= -10.0f)
-		return float4(1.0f, 0.96f, 0.62f, 1.0f); // Beach Sand
-	else if (abs(y) <= 5.0f)
-		return float4(0.48f, 0.77f, 0.46f, 1.0f); // Light Yellow green
-	else if (abs(y) <= 12.0f)
-		return float4(0.0f, 1.0f, 0.0f, 1.0f); // GREEN
-	else if (abs(y) <= 20.0f)
-		return float4(1.0f, 0.0f, 0.0f, 1.0f); // RED
+	if (abs(z) <= 0.0f)
+		return float4(0.48f, 0.77f, 0.46f, 1.0f);
+	else if (abs(z) <= 0.20f)
+		return float4(1.0f, 0.0f, 0.0f, 1.0f); 
+	else if (abs(z) <= 0.60f)
+		return float4(1.0f, 0.0f, 0.0f, 1.0f); 
+	else if (abs(z) <= 0.80f)
+		return float4(1.0f, 0.0f, 0.0f, 1.0f); 
 	else
 		return float4(1.0f, 1.0f, 0.0f, 1.0f);
 }
@@ -74,10 +74,11 @@ OutputVS TransformSineVS(float3 posL: POSITION0, float4 color : COLOR0)
 {
 	OutputVS outVS = (OutputVS)0;
 
-	posL.y = SumOfRadialSineWave(posL.x, posL.z);
-
 	outVS.posH = mul(float4(posL, 1.0f), gWVP);
-	outVS.color = GetColorFromHeight(posL.y);
+	outVS.color = GetColorFromZ(posL.z);
+
+	float dist = distance(outVS.posH, gEyePos);
+	outVS.fogLerp = saturate((dist - minDist) / (maxDist - minDist));
 
 	return outVS;
 }
@@ -86,7 +87,7 @@ OutputVS TransformVS(float3 posL: POSITION0, float4 color: COLOR0)
 {
 	OutputVS outVS = (OutputVS)0;
 	outVS.posH = mul(float4(posL, 1.0f), gWVP);
-	outVS.color = GetColorFromHeight(posL.y);
+	outVS.color = GetColorFromZ(posL.z);
 
 	float dist = distance(outVS.posH, gEyePos);
 	outVS.fogLerp = saturate((dist - minDist) / (maxDist - minDist));
@@ -102,6 +103,14 @@ OutputVS TransformVS_Scale(float3 posL: POSITION0, float4 color : COLOR0)
 	return outVS;
 }
 
+OutputVS TransformVS_Ship(float3 posL: POSITION0, float4 color : COLOR0)
+{
+	OutputVS outVS = (OutputVS)0;
+	outVS.posH = mul(float4(posL, 1.0f), gWVP);
+
+	return outVS;
+}
+
 float4 TransformPS(OutputVS inVS): COLOR0
 {
 	float4 finalColor = lerp(inVS.color, gFogColor, inVS.fogLerp);
@@ -111,6 +120,11 @@ float4 TransformPS(OutputVS inVS): COLOR0
 float4 TransformPS_Black(OutputVS inVS) : COLOR0
 {
 	return (float4)0;
+}
+
+float4 TransformPS_Ship(OutputVS inVS) : COLOR0
+{
+	return float4(1.f, 0.f, 0.f, 1.f);
 }
  
 // Techniques
@@ -144,6 +158,42 @@ technique TransformTechSine
 	pass P1
 	{
 		vertexShader = compile vs_2_0 TransformSineVS();
+		pixelShader = compile ps_2_0 TransformPS_Black();
+		FillMode = WireFrame;
+	}
+}
+
+technique TransformTechShip
+{
+	pass P0
+	{
+		vertexShader = compile vs_2_0 TransformVS_Ship();
+		pixelShader = compile ps_2_0 TransformPS_Ship();
+
+		FillMode = Solid;
+	}
+
+	pass P1
+	{
+		vertexShader = compile vs_2_0 TransformVS();
+		pixelShader = compile ps_2_0 TransformPS_Black();
+		FillMode = WireFrame;
+	}
+}
+
+technique TransformTechTunnel
+{
+	pass P0
+	{
+		vertexShader = compile vs_2_0 TransformSineVS();
+		pixelShader = compile ps_2_0 TransformPS();
+
+		FillMode = Solid;
+	}
+
+	pass P1
+	{
+		vertexShader = compile vs_2_0 TransformVS();
 		pixelShader = compile ps_2_0 TransformPS_Black();
 		FillMode = WireFrame;
 	}

@@ -1,4 +1,3 @@
-
 #include "Tunnel.h"
 
 Tunnel::Tunnel()
@@ -11,6 +10,10 @@ Tunnel::Tunnel()
 	// Leave this 0.9 so the tunnel doesn't flicker.
 	, RESET_POS(0.9f)
 {
+	// Set the right Technique on th .fx file
+	mhTech = mFx->GetTechniqueByName("TransformTechTunnel");
+	HR(mFx->SetTechnique(mhTech));
+
 	// Set the size of the tunnel.
 	SetScale(SCALE_X, SCALE_Y, SCALE_Z);
 }

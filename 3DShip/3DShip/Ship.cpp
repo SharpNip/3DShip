@@ -2,12 +2,22 @@
 
 
 Ship::Ship()
-	: PrimitiveModel(PrimitiveModel_Type::CYLINDER)
+	: PrimitiveModel(PrimitiveModel_Type::CONE)
 	, mDirection(0, 0)
-	, SHIP_SPEED(50)
+	, mTether(0, 0, 0)
+	, SHIP_SPEED(30)
+
 {
-	SetPosition(gEngine->GetCamera()->GetCamPos().x, gEngine->GetCamera()->GetCamPos().y, gEngine->GetCamera()->GetCamPos().z + 20);
-	SetScale(2.f, 1.f, 1.f);
+	mTether = D3DXVECTOR3(gEngine->GetCamera()->GetCamPos().x, gEngine->GetCamera()->GetCamPos().y, gEngine->GetCamera()->GetCamPos().z + 20);
+
+	// Set the right Technique on th .fx file
+	mhTech = mFx->GetTechniqueByName("TransformTechShip");
+	HR(mFx->SetTechnique(mhTech));
+
+	// Set the start position for the ship
+	SetPosition(mTether.x, mTether.y, mTether.z);
+	// Scale of the ship
+	SetScale(START_SCALE_X, START_SCALE_Y, START_SCALE_Z);
 }
 
 Ship::~Ship()
@@ -19,12 +29,15 @@ Ship::~Ship()
 void Ship::Update()
 {
 	float dt = gTimer->GetDeltaTime();
+	
 	HandleInput(dt);
 }
 
 void Ship::HandleInput(float dt)
 {
-	mDirection = D3DXVECTOR2(0, 0);
+	mDirection.x = 0;
+	mDirection.y = 0;
+
 	if (gDInput->keyDown(DIK_A))
 	{
 		mDirection.x = -1;
@@ -54,16 +67,22 @@ void Ship::Move(D3DXVECTOR2 dir, float dt)
 {
 	float tempX = GetPosition().x;
 	float  tempY = GetPosition().y;
-	SetPosition(tempX += mDirection.x * SHIP_SPEED * dt, tempY += mDirection.y * SHIP_SPEED * dt , GetPosition().z);
+
+	if (abs(sqrt((GetPosition().x * GetPosition().x) + (GetPosition().y * GetPosition().y))) >= 4)
+	{
+		SetPosition(tempX -= mDirection.x * SHIP_SPEED * dt, tempY -= mDirection.y * SHIP_SPEED * dt, GetPosition().z);
+	}
+	else
+	{
+		SetPosition(tempX += mDirection.x * SHIP_SPEED * dt, tempY += mDirection.y * SHIP_SPEED * dt, GetPosition().z);
+	}
+
+	
 }
 
 void Ship::OnCollision()
 {
 
-}
-void Ship::SetDirection(D3DXVECTOR2 dir)
-{
-	mDirection = dir;
 }
 
 

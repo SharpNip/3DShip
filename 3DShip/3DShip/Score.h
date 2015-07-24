@@ -23,7 +23,7 @@ public:
 private:
 	RECT fontRect;
 	// Buffer for score displaying
-	char scoreString[8];
+	char scoreString[300];
 	// Current score (temporarily linked to the game timer)
 	float currentScore;
 	// To be used to display the distance traveled.
