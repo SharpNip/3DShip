@@ -7,11 +7,15 @@ ShipRace::ShipRace()
 
 	ship = new Ship();
 	tunnel = new Tunnel();
+	score = new Score();
+	
 }
 
 ShipRace::~ShipRace()
 {
-	delete triGrid;
+	//delete triGrid;
+	delete tunnel;
+	delete score;
 }
 
 void ShipRace::Start()

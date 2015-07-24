@@ -2,6 +2,7 @@
 #include "Sprite.h"
 #include "Utils.h"
 #include <stdio.h>
+#include "Ship.h"
 
 class Score
 	: public Component
@@ -12,12 +13,17 @@ public:
 
 	void Update();
 	void Draw();
-	void IncrementScore(char* score);
-	char* GetScoreAsString(float deltaTime);
+	// Checks the 
+	void IncrementScore(float deltaTime);
+	char* GetScoreAsString();
 
 private:
-	char* scoreString;
+
+	// Buffer for score displaying
+	char scoreString[8];
+	// Current score (temporarily linked to the game timer)
 	float currentScore;
+	// To be used to display the distance traveled.
 	ID3DXFont* mFont;
 };
 
