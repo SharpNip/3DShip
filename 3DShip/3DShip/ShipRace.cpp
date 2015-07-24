@@ -6,11 +6,15 @@ ShipRace::ShipRace()
 	//triGrid->SetPosition(0.f, 0.f, 0.f);
 
 	tunnel = new Tunnel();
+	score = new Score();
+	
 }
 
 ShipRace::~ShipRace()
 {
-	delete triGrid;
+	//delete triGrid;
+	delete tunnel;
+	delete score;
 }
 
 void ShipRace::Start()

@@ -3,6 +3,7 @@
 #include "ResourceIDs.h"
 #include "TriGrid.h"
 #include "Tunnel.h"
+#include "Score.h"
 
 class ShipRace
 {
@@ -18,5 +19,6 @@ public:
 private:
 	TriGrid* triGrid;
 	Tunnel* tunnel;
+	Score* score;
 };
 

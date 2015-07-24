@@ -18,7 +18,6 @@ Score::Score()
 	D3DXCreateFontIndirect(gD3DDevice, &fontDesc, &mFont);
 }
 
-
 Score::~Score()
 {
 	ReleaseCOM(mFont);
@@ -26,21 +25,28 @@ Score::~Score()
 
 void Score::Update()
 {
-	float deltaTime = gTimer->GetDeltaTime();
+	float deltaTime = gTimer->GetGameTime();
 	
-	GetScoreAsString(deltaTime);
-
+	IncrementScore(deltaTime);
+	GetScoreAsString();
 }
 
 void Score::Draw()
 {
 	RECT fontRect;
 	::GetClientRect(gApp->GetMainWindow(), &fontRect);
-	mFont->DrawTextA(0, _T(scoreString), -1, &fontRect, DT_LEFT | DT_BOTTOM | DT_SINGLELINE, D3DCOLOR_XRGB(255, 255, 255));
+	mFont->DrawTextA(0, _T(strcat(GetScoreAsString(), "km")), -1, 
+		&fontRect, DT_LEFT | DT_BOTTOM | DT_SINGLELINE, D3DCOLOR_XRGB(1, 1, 1));
 }
 
-char* Score::GetScoreAsString(float deltaTime)
+char* Score::GetScoreAsString()
 {
-	scoreString = "DEFAULT_SCORE";
+	sprintf(scoreString, "%f", currentScore);
 	return scoreString;
+	
+}
+
+void Score::IncrementScore(float deltaTime)
+{
+	currentScore = deltaTime;
 }
