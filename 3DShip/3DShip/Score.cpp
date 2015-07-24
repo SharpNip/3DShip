@@ -28,7 +28,14 @@ void Score::Update()
 	float deltaTime = gTimer->GetGameTime();
 	
 	IncrementScore(deltaTime);
-	GetScoreAsString();
+}
+void Score::OnResetDevice()
+{
+	HR(mFont->OnResetDevice());
+}
+void Score::OnLostDevice()
+{
+	HR(mFont->OnLostDevice());
 }
 
 void Score::Draw()
