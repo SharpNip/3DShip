@@ -11,14 +11,17 @@ public:
 	Score();
 	~Score();
 
+	void OnResetDevice();
+	void OnLostDevice();
+
 	void Update();
 	void Draw();
-	// Checks the 
+	//Used to get the score from the player and add it to the current thing
 	void IncrementScore(float deltaTime);
 	char* GetScoreAsString();
 
 private:
-
+	RECT fontRect;
 	// Buffer for score displaying
 	char scoreString[8];
 	// Current score (temporarily linked to the game timer)
