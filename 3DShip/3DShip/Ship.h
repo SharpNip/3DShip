@@ -26,6 +26,8 @@ private:
 	// The ship Speed
 	int mShipSpeed;
 
+	D3DXVECTOR2 mLastFramePos;
+
 	// Direction of the ship
 	D3DXVECTOR2 mDirection;
 	D3DXVECTOR3 mStartPos;

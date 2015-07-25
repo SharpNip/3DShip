@@ -4,6 +4,7 @@ Ship::Ship()
 	: PrimitiveModel(PrimitiveModel_Type::CONE)
 	, mDirection(0, 0)
 	, mStartPos(0, 0, 0)
+	, mLastFramePos(0, 0)
 	, mShipSpeed(START_SPEED)
 
 {
@@ -72,23 +73,18 @@ void Ship::Move(D3DXVECTOR2 dir, float dt)
 	// Store position in temporary variables
 	float tempX = GetPosition().x;
 	float tempY = GetPosition().y;
-	
-	static D3DXVECTOR2 lastFramePos;
 
 	if (abs(sqrt((GetPosition().x * GetPosition().x) + (GetPosition().y * GetPosition().y))) >= 4.5)
 	{
 		mShipSpeed = 0;
-		SetPosition(lastFramePos.x, lastFramePos.y, GetPosition().z);
+		SetPosition(mLastFramePos.x, mLastFramePos.y, GetPosition().z);
 	}
 	else if (abs(sqrt((GetPosition().x * GetPosition().x) + (GetPosition().y * GetPosition().y))) < 4.5)
 	{
-		lastFramePos = D3DXVECTOR2(GetPosition().x, GetPosition().y);
+		mLastFramePos = D3DXVECTOR2(GetPosition().x, GetPosition().y);
 		mShipSpeed = START_SPEED;
 		SetPosition(tempX += mDirection.x * mShipSpeed * dt, tempY += mDirection.y * mShipSpeed * dt, GetPosition().z);
-	}
-
-	
-	
+	}	
 }
 
 void Ship::OnCollision()
