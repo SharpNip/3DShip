@@ -1,6 +1,9 @@
 #pragma once
-
 #include "PrimitiveModel.h"
+
+#define SCALE_X 20.f
+#define SCALE_Y 20.f
+#define SCALE_Z 100.f
 
 class Tunnel :
 	public PrimitiveModel
@@ -16,7 +19,6 @@ public:
 private:
 	D3DXVECTOR3 mPos;
 
-	const float SCALE_X, SCALE_Y, SCALE_Z;
 	const float TUNNEL_SPEED;
 	const float RESET_POS;
 };

@@ -1,21 +1,21 @@
 #include "Ship.h"
 
-
 Ship::Ship()
 	: PrimitiveModel(PrimitiveModel_Type::CONE)
 	, mDirection(0, 0)
-	, mTether(0, 0, 0)
-	, SHIP_SPEED(30)
+	, mStartPos(0, 0, 0)
+	, mShipSpeed(START_SPEED)
 
 {
-	mTether = D3DXVECTOR3(gEngine->GetCamera()->GetCamPos().x, gEngine->GetCamera()->GetCamPos().y, gEngine->GetCamera()->GetCamPos().z + 20);
+	// Set the ship to it<s base position
+	mStartPos = D3DXVECTOR3(gEngine->GetCamera()->GetCamPos().x, gEngine->GetCamera()->GetCamPos().y, gEngine->GetCamera()->GetCamPos().z + 20);
 
 	// Set the right Technique on th .fx file
 	mhTech = mFx->GetTechniqueByName("TransformTechShip");
 	HR(mFx->SetTechnique(mhTech));
 
 	// Set the start position for the ship
-	SetPosition(mTether.x, mTether.y, mTether.z);
+	SetPosition(mStartPos.x, mStartPos.y, mStartPos.z);
 	// Scale of the ship
 	SetScale(START_SCALE_X, START_SCALE_Y, START_SCALE_Z);
 }
@@ -30,14 +30,17 @@ void Ship::Update()
 {
 	float dt = gTimer->GetDeltaTime();
 	
+	// Do what need to be done for each input, check every frame
 	HandleInput(dt);
 }
 
 void Ship::HandleInput(float dt)
 {
+	// Set the directions to 0
 	mDirection.x = 0;
 	mDirection.y = 0;
-
+	
+	// Set the right direction for the right keys pressed
 	if (gDInput->keyDown(DIK_A))
 	{
 		mDirection.x = -1;
@@ -60,23 +63,31 @@ void Ship::HandleInput(float dt)
 	
 	//std::cout << "DIRECTIONX: " << mDirection.x << std::endl;
 	//std::cout << "DIRECTIONY: " << mDirection.y << std::endl;
+	// Move the ship in the good direction
 	Move(mDirection, dt);
 }
 
 void Ship::Move(D3DXVECTOR2 dir, float dt)
 {
+	// Store position in temporary variables
 	float tempX = GetPosition().x;
-	float  tempY = GetPosition().y;
+	float tempY = GetPosition().y;
+	
+	static D3DXVECTOR2 lastFramePos;
 
-	if (abs(sqrt((GetPosition().x * GetPosition().x) + (GetPosition().y * GetPosition().y))) >= 4)
+	if (abs(sqrt((GetPosition().x * GetPosition().x) + (GetPosition().y * GetPosition().y))) >= 4.5)
 	{
-		SetPosition(tempX -= mDirection.x * SHIP_SPEED * dt, tempY -= mDirection.y * SHIP_SPEED * dt, GetPosition().z);
+		mShipSpeed = 0;
+		SetPosition(lastFramePos.x, lastFramePos.y, GetPosition().z);
 	}
-	else
+	else if (abs(sqrt((GetPosition().x * GetPosition().x) + (GetPosition().y * GetPosition().y))) < 4.5)
 	{
-		SetPosition(tempX += mDirection.x * SHIP_SPEED * dt, tempY += mDirection.y * SHIP_SPEED * dt, GetPosition().z);
+		lastFramePos = D3DXVECTOR2(GetPosition().x, GetPosition().y);
+		mShipSpeed = START_SPEED;
+		SetPosition(tempX += mDirection.x * mShipSpeed * dt, tempY += mDirection.y * mShipSpeed * dt, GetPosition().z);
 	}
 
+	
 	
 }
 

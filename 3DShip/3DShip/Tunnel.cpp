@@ -3,9 +3,6 @@
 Tunnel::Tunnel()
 	: PrimitiveModel(PrimitiveModel_Type::CYLINDER)
 	, mPos(0.f, 0.f, 0.f)
-	, SCALE_X(20.f)
-	, SCALE_Y(20.f)
-	, SCALE_Z(100.f)
 	, TUNNEL_SPEED(0.001f)
 	// Leave this 0.9 so the tunnel doesn't flicker.
 	, RESET_POS(0.9f)
