@@ -74,13 +74,18 @@ void Ship::Move(D3DXVECTOR2 dir, float dt)
 	float tempX = GetPosition().x;
 	float tempY = GetPosition().y;
 
-	if (abs(sqrt((GetPosition().x * GetPosition().x) + (GetPosition().y * GetPosition().y))) >= 4.5)
+	// If the ship go over our boudaries
+	if (abs(sqrt((GetPosition().x * GetPosition().x) + (GetPosition().y * GetPosition().y))) >= BOUNDARIES)
 	{
+		// Set it's sêed tp 0
 		mShipSpeed = 0;
+		// Set it's position to the lasttime he was inside the boundaries
 		SetPosition(mLastFramePos.x, mLastFramePos.y, GetPosition().z);
 	}
-	else if (abs(sqrt((GetPosition().x * GetPosition().x) + (GetPosition().y * GetPosition().y))) < 4.5)
+	// If the ship is inside the boundaries
+	else if (abs(sqrt((GetPosition().x * GetPosition().x) + (GetPosition().y * GetPosition().y))) < BOUNDARIES)
 	{
+		// Set the variable of thelast correct frame and it's speed backto normal
 		mLastFramePos = D3DXVECTOR2(GetPosition().x, GetPosition().y);
 		mShipSpeed = START_SPEED;
 		SetPosition(tempX += mDirection.x * mShipSpeed * dt, tempY += mDirection.y * mShipSpeed * dt, GetPosition().z);
@@ -89,7 +94,7 @@ void Ship::Move(D3DXVECTOR2 dir, float dt)
 
 void Ship::OnCollision()
 {
-
+	// TODO if needed to do something on collision
 }
 
 

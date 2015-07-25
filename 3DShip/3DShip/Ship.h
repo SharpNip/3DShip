@@ -5,6 +5,7 @@
 #define START_SCALE_Y 1.f
 #define START_SCALE_Z 1.f
 #define START_SPEED 30
+#define BOUNDARIES 4.5f
 
 class Ship :
 	public PrimitiveModel
@@ -26,6 +27,7 @@ private:
 	// The ship Speed
 	int mShipSpeed;
 
+	// The position in x, y of the last frame inside our boudaries
 	D3DXVECTOR2 mLastFramePos;
 
 	// Direction of the ship
