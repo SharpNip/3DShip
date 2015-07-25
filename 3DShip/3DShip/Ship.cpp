@@ -30,7 +30,35 @@ Ship::~Ship()
 void Ship::Update()
 {
 	float dt = gTimer->GetDeltaTime();
-	
+	// Pure hypothetical test only testing test only not real collision ---------------------------------
+	// Need obstacles to go fourth !
+	D3DXVECTOR3 origin, direction;
+	origin = GetPosition();
+	direction = D3DXVECTOR3(0.f, 0.f, -1.0f);
+
+	D3DXMATRIX inverseWorld;
+	D3DXMatrixInverse(&inverseWorld, 0, &GetWorldMatrix());
+
+	D3DXVec3TransformCoord(&origin, &origin, &inverseWorld);
+	D3DXVec3TransformNormal(&direction, &direction, &inverseWorld);
+
+	BOOL hit = 0;
+	DWORD faceIndex = -1;
+	float u = 0.0f;
+	float v = 0.0f;
+	float dist = 0.0f;
+	ID3DXBuffer* allHits = 0;
+	DWORD numHits = 0;
+
+	HR(D3DXIntersect(mesh, &origin, &direction, &hit,
+		&faceIndex, &u, &v, &dist, &allHits, &numHits));
+
+	if (hit)
+	{
+		std::cout << "Itai !!!" << std::endl;
+	}
+	// End of collision test -----------------------------------------------------------------------------
+
 	// Do what need to be done for each input, check every frame
 	HandleInput(dt);
 }
@@ -85,7 +113,7 @@ void Ship::Move(D3DXVECTOR2 dir, float dt)
 	// If the ship is inside the boundaries
 	else if (abs(sqrt((GetPosition().x * GetPosition().x) + (GetPosition().y * GetPosition().y))) < BOUNDARIES)
 	{
-		// Set the variable of thelast correct frame and it's speed backto normal
+		// Set the variable of the last correct frame and it's speed back to normal
 		mLastFramePos = D3DXVECTOR2(GetPosition().x, GetPosition().y);
 		mShipSpeed = START_SPEED;
 		SetPosition(tempX += mDirection.x * mShipSpeed * dt, tempY += mDirection.y * mShipSpeed * dt, GetPosition().z);

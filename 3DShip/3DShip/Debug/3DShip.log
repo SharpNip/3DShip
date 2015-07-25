@@ -1,7 +1,9 @@
-﻿Build started 2015-07-24 23:34:10.
+﻿Build started 2015-07-25 19:16:23.
      1>Project "G:\S3\ProgAvancée2\Ship3D\3DShip\3DShip\3DShip.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Score.cpp Ship.cpp ShipRace.cpp Source.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Obstacle.cpp Score.cpp Ship.cpp ShipRace.cpp Source.cpp Tunnel.cpp
+         Tunnel.cpp
+         c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
          Source.cpp
          c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
      1>g:\s3\progavancée2\engine\src\core\sprite.h(20): warning C4244: 'argument' : conversion from 'LONG' to 'FLOAT', possible loss of data
@@ -15,6 +17,8 @@
      1>g:\s3\progavancée2\engine\src\core\sprite.h(28): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
      1>g:\s3\progavancée2\engine\src\core\sprite.h(29): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
          Ship.cpp
+         c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+         Obstacle.cpp
          c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
          Generating Code...
          Compiling...
@@ -43,4 +47,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.85
+Time Elapsed 00:00:05.75
