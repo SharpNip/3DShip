@@ -11,11 +11,11 @@ public:
 	~Obstacle();
 
 	void Update();
-	void MoveObstacle();
+	void MoveObstacle(float dt);
+	void ResetPosition();
 
 private:
-	//D3DXVECTOR3 mPos;
-
-	float x, y, z;
+	float posX, posY, depth, resetZ;
+	const float OBSTACLE_SPEED;
 };
 

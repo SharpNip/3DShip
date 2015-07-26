@@ -17,6 +17,7 @@ ShipRace::~ShipRace()
 	delete tunnel;
 	delete score;
 	delete ship;
+	delete obstacle;
 }
 
 void ShipRace::Start()

@@ -55,7 +55,7 @@ void Ship::Update()
 
 	if (hit)
 	{
-		std::cout << "Itai !!!" << std::endl;
+		//std::cout << "Itai !!!" << std::endl;
 	}
 	// End of collision test -----------------------------------------------------------------------------
 
