@@ -53,7 +53,7 @@ void Ship::Update()
 	HR(D3DXIntersect(mesh, &origin, &direction, &hit,
 		&faceIndex, &u, &v, &dist, &allHits, &numHits));
 
-	if (hit)
+	if (hit == 1)
 	{
 		//std::cout << "Itai !!!" << std::endl;
 	}
