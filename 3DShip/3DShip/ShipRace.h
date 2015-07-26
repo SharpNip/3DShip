@@ -1,5 +1,7 @@
 #pragma once
 
+#define GET_CAM_POS gEngine->GetCamera()->GetCamPos()
+
 #include "ResourceIDs.h"
 #include "TriGrid.h"
 #include "Tunnel.h"
@@ -27,6 +29,7 @@ private:
 	void QuitGame();
 	void RestartGame();
 	void LoadAssets();
+	void InitCamera();
 
 	// Class needed to make the game
 	Tunnel* tunnel;

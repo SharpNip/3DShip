@@ -8,11 +8,8 @@ ShipRace::ShipRace()
 	// Load the needed assets
 	LoadAssets();
 
-	// Set the base camPos to the ...base cam pos....
-	mBaseCamPos = gEngine->GetCamera()->GetCamPos();
-
-	// Test for sprite on screen
-	gEngine->GetCamera()->SetCamPos(D3DXVECTOR3(0, 0, -500));
+	// Initialize the camera of the game
+	InitCamera();
 
 	// Should be put in a startscreen class...TODO
 	test = new Sprite(Texture::ID::TEST);
@@ -29,7 +26,6 @@ ShipRace::~ShipRace()
 	{
 		delete test;
 	}
-	
 }
 
 void ShipRace::Start()
@@ -88,4 +84,13 @@ void ShipRace::RestartGame()
 void ShipRace::LoadAssets()
 {
 	Textures->LoadTexture(Texture::ID::TEST, "E_Gold01.png");
+}
+
+void ShipRace::InitCamera()
+{
+	// Set the base camPos to the ...base camera position....
+	mBaseCamPos = GET_CAM_POS;
+
+	// Test for sprite on screen
+	gEngine->GetCamera()->SetCamPos(D3DXVECTOR3(0, 0, -500));
 }
