@@ -53,6 +53,7 @@ void Ship::Update()
 	HR(D3DXIntersect(mesh, &origin, &direction, &hit,
 		&faceIndex, &u, &v, &dist, &allHits, &numHits));
 
+	// Here this condition is supposed to be true when there is a collision but...it is kinda always true.....NICK STUFF!!!
 	if (hit == 1)
 	{
 		//std::cout << "Itai !!!" << std::endl;
