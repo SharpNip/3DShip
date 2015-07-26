@@ -5,6 +5,7 @@
 #include "Tunnel.h"
 #include "Ship.h"
 #include "Score.h"
+#include "Obstacle.h"
 
 class ShipRace
 {
@@ -22,5 +23,6 @@ private:
 	Tunnel* tunnel;
 	Ship* ship;
 	Score* score;
+	Obstacle* obstacle;
 };
 

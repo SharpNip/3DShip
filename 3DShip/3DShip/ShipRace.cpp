@@ -8,6 +8,7 @@ ShipRace::ShipRace()
 	ship = new Ship();
 	tunnel = new Tunnel();
 	score = new Score();
+	obstacle = new Obstacle();
 }
 
 ShipRace::~ShipRace()
