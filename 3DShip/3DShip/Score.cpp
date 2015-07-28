@@ -27,7 +27,6 @@ void Score::Update()
 {
 	float deltaTime = gTimer->GetGameTime();
 	
-	IncrementScore(deltaTime);
 }
 void Score::OnResetDevice()
 {
@@ -42,7 +41,7 @@ void Score::Draw()
 {
 	RECT fontRect;
 	::GetClientRect(gApp->GetMainWindow(), &fontRect);
-	mFont->DrawTextA(0, _T(strcat(GetScoreAsString(), "km")), -1, 
+	mFont->DrawTextA(0, _T(GetScoreAsString()), 4, 
 		&fontRect, DT_LEFT | DT_BOTTOM | DT_SINGLELINE, D3DCOLOR_XRGB(1, 1, 1));
 }
 
@@ -50,10 +49,9 @@ char* Score::GetScoreAsString()
 {
 	sprintf(scoreString, "%f", currentScore);
 	return scoreString;
-	
 }
 
-void Score::IncrementScore(float deltaTime)
+void Score::SetScore(float distanceTraveledFromShip)
 {
-	currentScore = deltaTime;
+	currentScore = distanceTraveledFromShip;
 }

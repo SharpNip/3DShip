@@ -6,7 +6,7 @@
 #include "TriGrid.h"
 #include "Tunnel.h"
 #include "Ship.h"
-#include "Score.h"
+
 #include "Obstacle.h"
 
 class ShipRace
@@ -17,7 +17,7 @@ public:
 	ShipRace();
 	~ShipRace();
 
-	// Heritage methods
+	// Inherited methods
 	void Start();
 	void Update();
 	void Draw();
@@ -34,7 +34,6 @@ private:
 	// Class needed to make the game
 	Tunnel* tunnel;
 	Ship* ship;
-	Score* score;
 	Obstacle* obstacle;
 	Sprite *test;
 

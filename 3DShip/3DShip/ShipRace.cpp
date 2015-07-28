@@ -60,7 +60,6 @@ void ShipRace::InitGame()
 	test->SetVisible(false);
 	ship = new Ship();
 	tunnel = new Tunnel();
-	score = new Score();
 	obstacle = new Obstacle();
 }
 
@@ -69,7 +68,6 @@ void ShipRace::QuitGame()
 {
 	delete test;
 	delete tunnel;
-	delete score;
 	delete ship;
 	delete obstacle;
 }
