@@ -2,12 +2,18 @@
 
 Obstacle::Obstacle()
 	: PrimitiveModel(PrimitiveModel_Type::CUBE)
-	, posX(rand() % 10 - 5)
-	, posY(rand() % 10 - 5)
-	, depth(20)
+	, startingDepth(20)
+	, myRandom(rand() % 10 - 5)
+	, posX(myRandom)
+	, posY(myRandom)
+	, depth(startingDepth)
 	, OBSTACLE_SPEED(10)
 	, resetZ(-20)
 {
+	// Set the right Technique on th .fx file
+	mhTech = mFx->GetTechniqueByName("TransformTechObstacle");
+	HR(mFx->SetTechnique(mhTech));
+
 	// Spawn the cube at the right position.
 	SetPosition(posX, posY, depth);
 }
@@ -41,7 +47,7 @@ void Obstacle::MoveObstacle(float dt)
 void Obstacle::ResetPosition()
 {
 	// Reset with a new position.
-	posX = rand() % 10 - 5;
-	posY = rand() % 10 - 5;
-	depth = 20;
+	posX = myRandom;
+	posY = myRandom;
+	depth = startingDepth;
 }

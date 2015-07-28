@@ -15,7 +15,8 @@ public:
 	void ResetPosition();
 
 private:
-	float posX, posY, depth, resetZ;
+	float posX, posY, depth, startingDepth, resetZ;
+	int myRandom;
 	const float OBSTACLE_SPEED;
 };
 
