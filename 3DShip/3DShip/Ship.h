@@ -26,7 +26,7 @@ public:
 private:
 	// Methods to be used only by the ship
 	void HandleInput(float dt);
-	void Move(const D3DXVECTOR2 dir, float dt);
+	void Move(float dt);
 	void OnCollision();
 
 	// The ship Speed

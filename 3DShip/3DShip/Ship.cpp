@@ -67,10 +67,10 @@ void Ship::HandleInput(float dt)
 	//std::cout << "DIRECTIONX: " << mDirection.x << std::endl;
 	//std::cout << "DIRECTIONY: " << mDirection.y << std::endl;
 	// Move the ship in the good direction
-	Move(mDirection, dt);
+	Move(dt);
 }
 
-void Ship::Move(const D3DXVECTOR2 dir, float dt)
+void Ship::Move(float dt)
 {
 	// Store position in temporary variables
 	float tempX = GetPosition().x;
@@ -90,7 +90,7 @@ void Ship::Move(const D3DXVECTOR2 dir, float dt)
 
 		else if (mDirection.x == -1)
 		{
-			mDirection.y = -1;
+			mDirection.y = 1;
 		}
 
 		else if (mDirection.y == 1)
@@ -100,7 +100,7 @@ void Ship::Move(const D3DXVECTOR2 dir, float dt)
 
 		else if (mDirection.y == -1)
 		{
-			mDirection.x = -1;
+			mDirection.x = 1;
 		}
 
 		SetPosition(tempX -= mDirection.x * mShipSpeed * dt, tempY -= mDirection.y * mShipSpeed * dt, GetPosition().z);
