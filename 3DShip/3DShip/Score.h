@@ -2,7 +2,6 @@
 #include "Sprite.h"
 #include "Utils.h"
 #include <stdio.h>
-#include "Ship.h"
 
 class Score
 	: public Component
@@ -17,10 +16,11 @@ public:
 	void Update();
 	void Draw();
 	//Used to get the score from the player and add it to the current thing
-	void IncrementScore(float deltaTime);
-	char* GetScoreAsString();
+	void SetScore(float score);
+	
 
 private:
+	char* GetScoreAsString();
 	RECT fontRect;
 	// Buffer for score displaying
 	char scoreString[300];
