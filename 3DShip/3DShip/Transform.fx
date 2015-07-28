@@ -103,14 +103,6 @@ OutputVS TransformVS_Scale(float3 posL: POSITION0, float4 color : COLOR0)
 	return outVS;
 }
 
-OutputVS TransformVS_Ship(float3 posL: POSITION0, float4 color : COLOR0)
-{
-	OutputVS outVS = (OutputVS)0;
-	outVS.posH = mul(float4(posL, 1.0f), gWVP);
-
-	return outVS;
-}
-
 float4 TransformPS(OutputVS inVS): COLOR0
 {
 	float4 finalColor = lerp(inVS.color, gFogColor, inVS.fogLerp);
@@ -125,6 +117,11 @@ float4 TransformPS_Black(OutputVS inVS) : COLOR0
 float4 TransformPS_Ship(OutputVS inVS) : COLOR0
 {
 	return float4(1.f, 0.f, 0.f, 1.f);
+}
+
+float4 TransformPS_Obstacle(OutputVS inVS) : COLOR0
+{
+	return float4(1.f, 1.f, 0.f, 1.f);
 }
  
 // Techniques
@@ -167,7 +164,7 @@ technique TransformTechShip
 {
 	pass P0
 	{
-		vertexShader = compile vs_2_0 TransformVS_Ship();
+		vertexShader = compile vs_2_0 TransformVS();
 		pixelShader = compile ps_2_0 TransformPS_Ship();
 
 		FillMode = Solid;
@@ -185,12 +182,30 @@ technique TransformTechTunnel
 {
 	pass P0
 	{
-		vertexShader = compile vs_2_0 TransformSineVS();
+		vertexShader = compile vs_2_0 TransformVS();
 		pixelShader = compile ps_2_0 TransformPS();
 
 		FillMode = Solid;
 	}
 
+	pass P1
+	{
+		vertexShader = compile vs_2_0 TransformVS();
+		pixelShader = compile ps_2_0 TransformPS_Black();
+		FillMode = WireFrame;
+	}
+}
+
+technique TransformTechObstacle
+{
+	pass P0
+	{
+		vertexShader = compile vs_2_0 TransformVS();
+		pixelShader = compile ps_2_0 TransformPS_Obstacle();
+
+		FillMode = Solid;
+	}
+	
 	pass P1
 	{
 		vertexShader = compile vs_2_0 TransformVS();
