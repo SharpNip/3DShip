@@ -1,12 +1,13 @@
 #pragma once
 #include "PrimitiveModel.h"
+#include "BoxCollider.h"
+#include "ResourceIDs.h"
 
 #define START_SCALE_X 2.f
 #define START_SCALE_Y 1.f
 #define START_SCALE_Z 1.f
 #define START_SPEED 30
-#define BOUNDARIES_X 5.f
-#define BOUNDARIES_Y 8.f
+#define BOUNDARIES 5.f
 
 class Ship :
 	public PrimitiveModel
@@ -37,5 +38,7 @@ private:
 	// Direction of the ship
 	D3DXVECTOR2 mDirection;
 	D3DXVECTOR3 mStartPos;
+
+	BoxCollider* mCollider;
 };
 
