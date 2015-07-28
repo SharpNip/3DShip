@@ -10,7 +10,7 @@ int WINAPI _tWinMain(HINSTANCE hInstance,
 	Engine* engine = new Engine(hInstance, "ShipRace");
 	gEngine = engine;
 
-	gEngine->Init();
+	engine->Init();
 
 	ShipRace* game = new ShipRace();
 

@@ -4,14 +4,13 @@ ShipRace::ShipRace()
 	: mBaseCamPos(0, 0, 0)
 	, mGameStarted(false)
 	, mGameOver(false)
-	, mScreenCamPos(0, 0, -500)
 {
 	// Load the needed assets
 	LoadAssets();
-	
+
 	// Initialize the camera of the game
 	InitCamera();
-	
+
 	// Should be put in a startscreen class...TODO
 	test = new Sprite(Texture::ID::TEST);
 }
@@ -41,16 +40,6 @@ void ShipRace::Update()
 	{
 		InitGame();
 	}
-	
-	if (gDInput->keyPressed(DIK_Z) && mGameStarted)
-	{
-		GameOver();
-	}
-	
-	if (mGameOver && gDInput->keyPressed(DIK_Q) && mGameStarted)
-	{
-		RestartGame();
-	}
 }
 
 void ShipRace::Draw()
@@ -79,41 +68,17 @@ void ShipRace::InitGame()
 void ShipRace::QuitGame()
 {
 	delete test;
-	test = nullptr;
 	delete tunnel;
-	tunnel = nullptr;
 	delete score;
-	score = nullptr;
 	delete ship;
-	ship = nullptr;
 	delete obstacle;
-	obstacle = nullptr;
 }
 
 // Methods for the restart game
-void ShipRace::GameOver()
-{
-	gEngine->GetCamera()->SetCamPos(mScreenCamPos);
-	mGameOver = true;
-	test->SetVisible(true);
-	score->Kill();
-	ship->Kill();
-	obstacle->SetActive(false);
-	tunnel->SetActive(false);
-}
-
 void ShipRace::RestartGame()
 {
-	gEngine->GetCamera()->SetCamPos(mBaseCamPos);
-	mGameOver = false;
-	test->SetVisible(false);
-	ship->Activate();
-	score->Activate();
-	obstacle->SetActive(true);
-	tunnel->SetActive(true);
-	score->SetActive(true);
+	
 }
-
 
 // Load the necessary assets
 void ShipRace::LoadAssets()
@@ -124,10 +89,8 @@ void ShipRace::LoadAssets()
 void ShipRace::InitCamera()
 {
 	// Set the base camPos to the ...base camera position....
-	D3DXVECTOR3 temp = CAM_POS;
-	temp.y += 5;
-	mBaseCamPos = temp;
-	
+	mBaseCamPos = GET_CAM_POS;
+
 	// Test for sprite on screen
-	gEngine->GetCamera()->SetCamPos(mScreenCamPos);
+	gEngine->GetCamera()->SetCamPos(D3DXVECTOR3(0, 0, -500));
 }

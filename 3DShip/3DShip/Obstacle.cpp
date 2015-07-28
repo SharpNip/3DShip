@@ -2,20 +2,26 @@
 
 Obstacle::Obstacle()
 	: PrimitiveModel(PrimitiveModel_Type::CUBE)
-	, startingDepth(20)
-	, myRandom(rand() % 10 - 5)
-	, posX(myRandom)
-	, posY(myRandom)
+	, startingDepth(40)
+	, myRandom(rand() % 4)
+	, posX(0)
+	, posY(0)
 	, depth(startingDepth)
-	, OBSTACLE_SPEED(10)
+	, size(10.f)
+	, OBSTACLE_SPEED(50)
 	, resetZ(-20)
+	, distanceFromCenter(5.f)
 {
+	this->SetID(Components::ID::OBSTACLE);
 	// Set the right Technique on th .fx file
 	mhTech = mFx->GetTechniqueByName("TransformTechObstacle");
 	HR(mFx->SetTechnique(mhTech));
 
 	// Spawn the cube at the right position.
-	SetPosition(posX, posY, depth);
+	SetNewPosition(myRandom);
+	SetScale(size, size, 0.1f);
+	mCollider = new BoxCollider(this, this->GetPosition().x, this->GetPosition().y, this->GetPosition().z, this->size, this->size, 1.f);
+	
 }
 
 Obstacle::~Obstacle()
@@ -26,9 +32,44 @@ Obstacle::~Obstacle()
 void Obstacle::Update()
 {
 	float dt = gTimer->GetDeltaTime();
-
+	if (gDInput->keyPressed(DIK_C))
+	{
+		std::cout << "X full: " << mCollider->GetPosition().x + this->size << std::endl;
+		std::cout << "Y full: " << mCollider->GetPosition().y + this->size << std::endl;
+		std::cout << "Z: " << mCollider->GetPosition().z << std::endl;
+	}
+	
 	// Make sure to move the obstacle.
 	MoveObstacle(dt);
+}
+
+void Obstacle::SetNewPosition(int random)
+{
+	switch (random)
+	{
+	case 0:
+		SetPosition(-distanceFromCenter, 0.f, depth);
+		posX = -distanceFromCenter;
+		posY = 0.f;
+		break;
+	case 1:
+		SetPosition(distanceFromCenter, 0.f, depth);
+		posX = distanceFromCenter;
+		posY = 0.f;
+		break;
+	case 2:
+		SetPosition(0.f, -distanceFromCenter, depth);
+		posX = 0.f;
+		posY = -distanceFromCenter;
+		break;
+	case 3:
+		SetPosition(0.f, distanceFromCenter, depth);
+		posX = 0.f;
+		posY = distanceFromCenter;
+		break;
+	default:
+		break;
+	}
 }
 
 void Obstacle::MoveObstacle(float dt)
@@ -42,12 +83,14 @@ void Obstacle::MoveObstacle(float dt)
 	{
 		ResetPosition();
 	}
+
+	mCollider->SetPosition(this->GetPosition().x, this->GetPosition().y, this->GetPosition().z);
 }
 
 void Obstacle::ResetPosition()
 {
 	// Reset with a new position.
-	posX = myRandom;
-	posY = myRandom;
+	myRandom = rand() % 4;
 	depth = startingDepth;
+	SetNewPosition(myRandom);
 }
