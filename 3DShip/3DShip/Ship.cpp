@@ -25,7 +25,8 @@ Ship::Ship()
 
 Ship::~Ship()
 {
-	
+	delete mCollider;
+	mCollider = nullptr;
 }
 
 void Ship::Update()
@@ -78,6 +79,9 @@ void Ship::Move(const D3DXVECTOR2 dir, float dt)
 	// If the ship go over our boudaries
 	if (abs(sqrt((GetPosition().x * GetPosition().x) + (GetPosition().y * GetPosition().y))) >= BOUNDARIES)
 	{
+		SetPosition(mLastFramePos.x, mLastFramePos.y, GetPosition().z);
+		tempX = GetPosition().x;
+		tempY = GetPosition().y;
 
 		if (mDirection.x == 1)
 		{
@@ -99,7 +103,7 @@ void Ship::Move(const D3DXVECTOR2 dir, float dt)
 			mDirection.x = -1;
 		}
 
-		SetPosition(mLastFramePos.x -= mDirection.x * mShipSpeed * dt, mLastFramePos.y -= mDirection.y * mShipSpeed * dt, GetPosition().z);
+		SetPosition(tempX -= mDirection.x * mShipSpeed * dt, tempY -= mDirection.y * mShipSpeed * dt, GetPosition().z);
 		// Set it's speed to 0
 		//mShipSpeed = 0;
 		// Set it's position to the lasttime he was inside the boundaries

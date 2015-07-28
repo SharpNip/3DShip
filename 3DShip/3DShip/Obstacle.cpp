@@ -26,7 +26,8 @@ Obstacle::Obstacle()
 
 Obstacle::~Obstacle()
 {
-
+	delete mCollider;
+	mCollider = nullptr;
 }
 
 void Obstacle::Update()

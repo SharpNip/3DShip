@@ -88,6 +88,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BoxCollider.cpp" />
+    <ClCompile Include="Collider3D.cpp" />
     <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="ShipRace.cpp" />
@@ -96,6 +98,8 @@
     <ClCompile Include="Tunnel.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BoxCollider.h" />
+    <ClInclude Include="Collider3D.h" />
     <ClInclude Include="Obstacle.h" />
     <ClInclude Include="ResourceIDs.h" />
     <ClInclude Include="Ship.h" />
