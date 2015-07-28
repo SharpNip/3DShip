@@ -5,7 +5,8 @@ namespace Components
 {
 	enum ID
 	{
-
+		SHIP,
+		OBSTACLE
 	};
 }
 
