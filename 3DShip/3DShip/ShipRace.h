@@ -1,12 +1,11 @@
 #pragma once
 
-#define GET_CAM_POS gEngine->GetCamera()->GetCamPos()
+#define CAM_POS gEngine->GetCamera()->GetCamPos()
 
 #include "ResourceIDs.h"
 #include "TriGrid.h"
 #include "Tunnel.h"
 #include "Ship.h"
-
 #include "Obstacle.h"
 
 class ShipRace
@@ -17,7 +16,7 @@ public:
 	ShipRace();
 	~ShipRace();
 
-	// Inherited methods
+	// Heritage methods
 	void Start();
 	void Update();
 	void Draw();
@@ -27,6 +26,7 @@ private:
 	// Private methods
 	void InitGame();
 	void QuitGame();
+	void GameOver();
 	void RestartGame();
 	void LoadAssets();
 	void InitCamera();
@@ -39,6 +39,7 @@ private:
 
 	// Private variables
 	D3DXVECTOR3 mBaseCamPos;
+	D3DXVECTOR3 mScreenCamPos;
 	bool mGameOver;
 	bool mGameStarted;
 };
