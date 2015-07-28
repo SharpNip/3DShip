@@ -95,3 +95,14 @@ void Obstacle::ResetPosition()
 	depth = startingDepth;
 	SetNewPosition(myRandom);
 }
+
+void Obstacle::Kill()
+{
+	ResetPosition();
+	SetActive(false);
+}
+
+void Obstacle::Activate()
+{
+	SetActive(true);
+}

@@ -21,6 +21,8 @@ public:
 	// Heritage methods
 	void Update();
 
+	bool GetIsDead() { return mIsDead; }
+
 	void Kill();
 	void Activate();
 
@@ -28,10 +30,12 @@ private:
 	// Methods to be used only by the ship
 	void HandleInput(float dt);
 	void Move(float dt);
-	void OnCollision();
+	void CheckCollison();
 	void FancyName(float distanceTraveled);
+
 	// The ship Speed
 	int mShipSpeed;
+	bool mIsDead;
 
 	// The ship's "traveled distance"
 	float currentScore;

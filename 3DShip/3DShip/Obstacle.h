@@ -17,6 +17,9 @@ public:
 	void MoveObstacle(float dt);
 	void ResetPosition();
 
+	void Kill();
+	void Activate();
+
 private:
 	float posX;
 	float posY;

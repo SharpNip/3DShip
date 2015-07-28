@@ -9,6 +9,7 @@ Ship::Ship()
 	, mCollider(nullptr)
 	, scoreboard(nullptr)
 	, currentScore(0.f)
+	, mIsDead(false)
 {
 	SetID(Components::ID::SHIP);
 	// Set the ship to it<s base position
@@ -22,6 +23,7 @@ Ship::Ship()
 	SetPosition(mStartPos.x, mStartPos.y, mStartPos.z);
 	// Scale of the ship
 	SetScale(START_SCALE_X, START_SCALE_Y, START_SCALE_Z);
+
 	mCollider = new BoxCollider(this, mStartPos.x, mStartPos.y, mStartPos.z, 3, 3, 3);
 	scoreboard = new Score();
 }
@@ -37,6 +39,8 @@ Ship::~Ship()
 void Ship::Update()
 {
 	float dt = gTimer->GetDeltaTime();
+
+	CheckCollison();
 
 	// Do what needs to be done for each input, check every frame
 	HandleInput(dt);
@@ -133,11 +137,19 @@ void Ship::Move(float dt)
 		mShipSpeed = START_SPEED;
 		SetPosition(tempX += mDirection.x * mShipSpeed * dt, tempY += mDirection.y * mShipSpeed * dt, GetPosition().z);
 	}	
+	mCollider->SetPosition(GetPosition().x, GetPosition().y, GetPosition().z);
 }
 
-void Ship::OnCollision()
+void Ship::CheckCollison()
 {
-	// TODO if needed to do something on collision
+	for each(Collider3D *col in mCollider->LookForCollisions())
+	{
+		if(col->GetGameObject()->GetID() == Components::OBSTACLE)
+		{
+			std::cout << "ouch";
+			mIsDead = true;
+		}
+	}
 }
 
 void Ship::Kill()
@@ -149,6 +161,7 @@ void Ship::Kill()
 
 void Ship::Activate()
 {
+	mIsDead = false;
 	SetActive(true);
 }
 

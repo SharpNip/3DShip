@@ -42,9 +42,12 @@ void ShipRace::Update()
 		InitGame();
 	}
 	
-	if (gDInput->keyPressed(DIK_Z) && mGameStarted)
+	if (mGameStarted)
 	{
-		GameOver();
+		if (ship->GetIsDead() && !mGameOver)
+		{
+			GameOver();
+		}
 	}
 	
 	if (mGameOver && gDInput->keyPressed(DIK_Q) && mGameStarted)
@@ -93,9 +96,8 @@ void ShipRace::GameOver()
 	gEngine->GetCamera()->SetCamPos(mScreenCamPos);
 	mGameOver = true;
 	test->SetVisible(true);
-
 	ship->Kill();
-	obstacle->SetActive(false);
+	obstacle->Kill();
 	tunnel->SetActive(false);
 }
 
@@ -105,10 +107,8 @@ void ShipRace::RestartGame()
 	mGameOver = false;
 	test->SetVisible(false);
 	ship->Activate();
-
-	obstacle->SetActive(true);
+	obstacle->Activate();
 	tunnel->SetActive(true);
-
 }
 
 
