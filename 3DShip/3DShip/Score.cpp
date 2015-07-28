@@ -50,10 +50,21 @@ char* Score::GetScoreAsString()
 {
 	sprintf(scoreString, "%f", currentScore);
 	return scoreString;
-	
 }
 
 void Score::IncrementScore(float deltaTime)
 {
 	currentScore = deltaTime;
+}
+
+void Score::Kill()
+{
+	currentScore = 0;
+	SetActive(false);
+}
+
+void Score::Activate()
+{
+	currentScore = 0;
+	SetActive(true);
 }

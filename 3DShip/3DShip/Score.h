@@ -20,6 +20,9 @@ public:
 	void IncrementScore(float deltaTime);
 	char* GetScoreAsString();
 
+	void Kill();
+	void Activate();
+
 private:
 	RECT fontRect;
 	// Buffer for score displaying

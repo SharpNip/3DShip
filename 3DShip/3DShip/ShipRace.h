@@ -1,6 +1,6 @@
 #pragma once
 
-#define GET_CAM_POS gEngine->GetCamera()->GetCamPos()
+#define CAM_POS gEngine->GetCamera()->GetCamPos()
 
 #include "ResourceIDs.h"
 #include "TriGrid.h"
@@ -27,6 +27,7 @@ private:
 	// Private methods
 	void InitGame();
 	void QuitGame();
+	void GameOver();
 	void RestartGame();
 	void LoadAssets();
 	void InitCamera();
@@ -40,6 +41,7 @@ private:
 
 	// Private variables
 	D3DXVECTOR3 mBaseCamPos;
+	D3DXVECTOR3 mScreenCamPos;
 	bool mGameOver;
 	bool mGameStarted;
 };

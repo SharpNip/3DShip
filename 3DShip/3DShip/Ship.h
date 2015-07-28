@@ -5,7 +5,8 @@
 #define START_SCALE_Y 1.f
 #define START_SCALE_Z 1.f
 #define START_SPEED 30
-#define BOUNDARIES 4.5f
+#define BOUNDARIES_X 5.f
+#define BOUNDARIES_Y 8.f
 
 class Ship :
 	public PrimitiveModel
@@ -18,10 +19,13 @@ public:
 	// Heritage methods
 	void Update();
 
+	void Kill();
+	void Activate();
+
 private:
 	// Methods to be used only by the ship
 	void HandleInput(float dt);
-	void Move(D3DXVECTOR2 dir, float dt);
+	void Move(const D3DXVECTOR2 dir, float dt);
 	void OnCollision();
 
 	// The ship Speed
