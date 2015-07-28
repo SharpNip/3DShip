@@ -11,11 +11,18 @@ public:
 	~Obstacle();
 
 	void Update();
+	void SetNewPosition(int random);
 	void MoveObstacle(float dt);
 	void ResetPosition();
 
 private:
-	float posX, posY, depth, startingDepth, resetZ;
+	float posX;
+	float posY;
+	float depth;
+	float startingDepth;
+	float resetZ;
+	float distanceFromCenter;
+	float size;
 	int myRandom;
 	const float OBSTACLE_SPEED;
 };

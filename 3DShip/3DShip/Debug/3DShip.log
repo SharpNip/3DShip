@@ -1,16 +1,24 @@
-﻿La génération a démarré 2015-07-28 12:14:28.
+﻿La génération a démarré 2015-07-28 15:41:46.
      1>Projet "D:\MaximeBeaulieu\ProgAvancéeJoé\TPs\3DShip\3DShip\3DShip\3DShip.vcxproj" sur le nœud 2 (Build cible(s)).
-     1>FxCompile:
-         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\fxc.exe /nologo /E"main" /T fx_2_0 /Fo "D:\MaximeBeaulieu\ProgAvancéeJoé\TPs\3DShip\3DShip\Debug\Transform.cso" /Od /Zi Transform.fx 
-     1>D:\MaximeBeaulieu\ProgAvanc�eJo�\TPs\3DShip\3DShip\3DShip\Transform.fx(80,15-43): warning X3206: 'distance': implicit truncation of vector type
-     1>D:\MaximeBeaulieu\ProgAvanc�eJo�\TPs\3DShip\3DShip\3DShip\Transform.fx(92,15-43): warning X3206: 'distance': implicit truncation of vector type
-     1>FXC : warning X4717: Effects deprecated for D3DCompiler_47
-         
-         compilation object save succeeded; see D:\MaximeBeaulieu\ProgAvancéeJoé\TPs\3DShip\3DShip\Debug\Transform.cso
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Obstacle.cpp
+         Obstacle.cpp
+         c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
        Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\MaximeBeaulieu\ProgAvancéeJoé\TPs\3DShip\3DShip\Debug\3DShip.exe" /INCREMENTAL /NOLOGO d3d9.lib d3dx9d.lib dxguid.lib dxerr.lib dinput8.lib irrklang.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\MaximeBeaulieu\ProgAvancéeJoé\TPs\3DShip\3DShip\Debug\3DShip.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\MaximeBeaulieu\ProgAvancéeJoé\TPs\3DShip\3DShip\Debug\3DShip.lib" /MACHINE:X86 Debug\Obstacle.obj
+         Debug\Ship.obj
+         Debug\ShipRace.obj
+         Debug\Source.obj
+         Debug\Score.obj
+         Debug\Tunnel.obj
+         "D:\MaximeBeaulieu\ProgAvancéeJoé\TPs\3DShip\3DShip\Debug\App.lib"
+         "D:\MaximeBeaulieu\ProgAvancéeJoé\TPs\3DShip\3DShip\Debug\Core.lib"
+     1>App.lib(App.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu Ûtre trouvÚ avec 'App.lib(App.obj)' ou sur 'D:\MaximeBeaulieu\ProgAvancÚeJoÚ\TPs\3DShip\3DShip\Debug\vc120.pdb'á; l'objet sera liÚ sans informations de dÚbogage
+     1>App.lib(DirectInput.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu Ûtre trouvÚ avec 'App.lib(DirectInput.obj)' ou sur 'D:\MaximeBeaulieu\ProgAvancÚeJoÚ\TPs\3DShip\3DShip\Debug\vc120.pdb'á; l'objet sera liÚ sans informations de dÚbogage
+     1>App.lib(GameTimer.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu Ûtre trouvÚ avec 'App.lib(GameTimer.obj)' ou sur 'D:\MaximeBeaulieu\ProgAvancÚeJoÚ\TPs\3DShip\3DShip\Debug\vc120.pdb'á; l'objet sera liÚ sans informations de dÚbogage
          3DShip.vcxproj -> D:\MaximeBeaulieu\ProgAvancéeJoé\TPs\3DShip\3DShip\Debug\3DShip.exe
      1>Génération du projet "D:\MaximeBeaulieu\ProgAvancéeJoé\TPs\3DShip\3DShip\3DShip\3DShip.vcxproj" terminée (Build cible(s)).
 
 La génération a réussi.
 
-Temps écoulé 00:00:00.23
+Temps écoulé 00:00:01.81
