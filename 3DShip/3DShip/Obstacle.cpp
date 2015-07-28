@@ -8,6 +8,10 @@ Obstacle::Obstacle()
 	, OBSTACLE_SPEED(10)
 	, resetZ(-20)
 {
+	// Set the right Technique on th .fx file
+	mhTech = mFx->GetTechniqueByName("TransformTechObstacle");
+	HR(mFx->SetTechnique(mhTech));
+
 	// Spawn the cube at the right position.
 	SetPosition(posX, posY, depth);
 }
