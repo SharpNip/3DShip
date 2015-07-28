@@ -12,6 +12,7 @@ Obstacle::Obstacle()
 	, resetZ(-20)
 	, distanceFromCenter(5.f)
 {
+	this->SetID(Components::ID::OBSTACLE);
 	// Set the right Technique on th .fx file
 	mhTech = mFx->GetTechniqueByName("TransformTechObstacle");
 	HR(mFx->SetTechnique(mhTech));
@@ -19,6 +20,8 @@ Obstacle::Obstacle()
 	// Spawn the cube at the right position.
 	SetNewPosition(myRandom);
 	SetScale(size, size, 0.1f);
+	mCollider = new BoxCollider(this, this->GetPosition().x, this->GetPosition().y, this->GetPosition().z, this->size, this->size, 1.f);
+	
 }
 
 Obstacle::~Obstacle()
@@ -29,7 +32,13 @@ Obstacle::~Obstacle()
 void Obstacle::Update()
 {
 	float dt = gTimer->GetDeltaTime();
-
+	if (gDInput->keyPressed(DIK_C))
+	{
+		std::cout << "X full: " << mCollider->GetPosition().x + this->size << std::endl;
+		std::cout << "Y full: " << mCollider->GetPosition().y + this->size << std::endl;
+		std::cout << "Z: " << mCollider->GetPosition().z << std::endl;
+	}
+	
 	// Make sure to move the obstacle.
 	MoveObstacle(dt);
 }
@@ -74,6 +83,8 @@ void Obstacle::MoveObstacle(float dt)
 	{
 		ResetPosition();
 	}
+
+	mCollider->SetPosition(this->GetPosition().x, this->GetPosition().y, this->GetPosition().z);
 }
 
 void Obstacle::ResetPosition()

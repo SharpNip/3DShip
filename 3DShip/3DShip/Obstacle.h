@@ -2,6 +2,8 @@
 
 #include "PrimitiveModel.h"
 #include "random"
+#include "ResourceIDs.h"	
+#include "BoxCollider.h"
 
 class Obstacle :
 	public PrimitiveModel
@@ -25,5 +27,9 @@ private:
 	float size;
 	int myRandom;
 	const float OBSTACLE_SPEED;
+
+	BoxCollider* mCollider;
+
+
 };
 
