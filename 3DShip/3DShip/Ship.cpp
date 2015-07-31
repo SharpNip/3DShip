@@ -137,7 +137,7 @@ void Ship::Move(float dt)
 		mShipSpeed = START_SPEED;
 		SetPosition(tempX += mDirection.x * mShipSpeed * dt, tempY += mDirection.y * mShipSpeed * dt, GetPosition().z);
 	}	
-	mCollider->SetPosition(GetPosition().x, GetPosition().y, GetPosition().z);
+	mCollider->SetPosition(GetPosition().x - 1.5f, GetPosition().y - 1.5f, GetPosition().z);
 }
 
 void Ship::CheckCollison()

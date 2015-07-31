@@ -20,8 +20,7 @@ Obstacle::Obstacle()
 	// Spawn the cube at the right position.
 	SetNewPosition(myRandom);
 	SetScale(size, size, 0.1f);
-	mCollider = new BoxCollider(this, this->GetPosition().x, this->GetPosition().y, this->GetPosition().z, this->size, this->size, 1.f);
-	
+	mCollider = new BoxCollider(this, this->GetPosition().x, this->GetPosition().y, this->GetPosition().z, this->size, this->size, depth);
 }
 
 Obstacle::~Obstacle()
@@ -85,7 +84,8 @@ void Obstacle::MoveObstacle(float dt)
 		ResetPosition();
 	}
 
-	mCollider->SetPosition(this->GetPosition().x, this->GetPosition().y, this->GetPosition().z);
+	mCollider->SetPosition(this->GetPosition().x - (size / 2), this->GetPosition().y - (size / 2), this->GetPosition().z - (size / 2));
+	std::cout << "Collision: " << mCollider->GetHeight() << ", " << mCollider->GetWidth() << std::endl;
 }
 
 void Obstacle::ResetPosition()
