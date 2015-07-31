@@ -26,6 +26,7 @@ public:
 	void Kill();
 	void Activate();
 
+	Score* scoreboard;
 private:
 	// Methods to be used only by the ship
 	void HandleInput(float dt);
@@ -48,6 +49,5 @@ private:
 	D3DXVECTOR3 mStartPos;
 
 	BoxCollider* mCollider;
-	Score* scoreboard;
 };
 

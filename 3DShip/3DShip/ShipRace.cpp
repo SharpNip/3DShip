@@ -53,7 +53,7 @@ void ShipRace::Update()
 		}
 	}
 	
-	if (mGameOver && gDInput->keyPressed(DIK_Q) && mGameStarted)
+	if (mGameOver && gDInput->keyPressed(DIK_SPACE) && mGameStarted)
 	{
 		RestartGame();
 	}
@@ -102,6 +102,7 @@ void ShipRace::GameOver()
 	ship->Kill();
 	obstacle->Kill();
 	tunnel->SetActive(false);
+	ship->scoreboard->SetActive(false);
 }
 
 void ShipRace::RestartGame()
@@ -112,6 +113,7 @@ void ShipRace::RestartGame()
 	ship->Activate();
 	obstacle->Activate();
 	tunnel->SetActive(true);
+	ship->scoreboard->SetActive(true);
 }
 
 
