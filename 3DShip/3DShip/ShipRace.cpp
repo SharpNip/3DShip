@@ -4,7 +4,7 @@ ShipRace::ShipRace()
 	: mBaseCamPos(0, 0, 0)
 	, mGameStarted(false)
 	, mGameOver(false)
-	, mScreenCamPos(0, 0, -500)
+	, mScreenCamPos(0, 0, -1000)
 {
 	// Load the needed assets
 	LoadAssets();
@@ -14,6 +14,8 @@ ShipRace::ShipRace()
 	
 	// Should be put in a startscreen class...TODO
 	test = new Sprite(Texture::ID::TEST);
+	test->SetPosition(-500, 500);
+	test->SetRotationDeg(0, 180.f, 0);
 }
 
 ShipRace::~ShipRace()
@@ -115,7 +117,7 @@ void ShipRace::RestartGame()
 // Load the necessary assets
 void ShipRace::LoadAssets()
 {
-	Textures->LoadTexture(Texture::ID::TEST, "E_Gold01.png");
+	Textures->LoadTexture(Texture::ID::TEST, "Starfox.png");
 }
 
 void ShipRace::InitCamera()
