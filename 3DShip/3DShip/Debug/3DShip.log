@@ -1,35 +1,42 @@
-﻿La génération a démarré 2015-07-31 16:48:08.
-     1>Projet "D:\School_Stuffs\Ship3D\3DShip\3DShip\3DShip.vcxproj" sur le nœud 2 (Build cible(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Obstacle.cpp
-         Obstacle.cpp
-         c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-     1>cl : Ligne de commande warning D9028: échec de la régénération minimale, passage à la génération normale
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\School_Stuffs\Ship3D\3DShip\Debug\3DShip.exe" /INCREMENTAL /NOLOGO d3d9.lib d3dx9d.lib dxguid.lib dxerr.lib dinput8.lib irrklang.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\School_Stuffs\Ship3D\3DShip\Debug\3DShip.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\School_Stuffs\Ship3D\3DShip\Debug\3DShip.lib" /MACHINE:X86 Debug\BoxCollider.obj
-         Debug\Collider3D.obj
-         Debug\Obstacle.obj
-         Debug\Ship.obj
-         Debug\ShipRace.obj
-         Debug\Source.obj
-         Debug\Score.obj
-         Debug\Tunnel.obj
-         D:\School_Stuffs\Ship3D\3DShip\Debug\App.lib
-         D:\School_Stuffs\Ship3D\3DShip\Debug\Core.lib
-     1>BoxCollider.obj : warning LNK4075: ' /EDITANDCONTINUE' ignoré à cause de la spécification '/OPT:LBR'
-     1>App.lib(App.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'App.lib(App.obj)' ou sur 'D:\School_Stuffs\Ship3D\3DShip\Debug\vc120.pdb' ; l'objet sera lié sans informations de débogage
-     1>App.lib(DirectInput.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'App.lib(DirectInput.obj)' ou sur 'D:\School_Stuffs\Ship3D\3DShip\Debug\vc120.pdb' ; l'objet sera lié sans informations de débogage
-     1>App.lib(GameTimer.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'App.lib(GameTimer.obj)' ou sur 'D:\School_Stuffs\Ship3D\3DShip\Debug\vc120.pdb' ; l'objet sera lié sans informations de débogage
-     1>Core.lib(Camera.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'Core.lib(Camera.obj)' ou sur 'D:\School_Stuffs\Ship3D\3DShip\Debug\vc120.pdb' ; l'objet sera lié sans informations de débogage
-     1>Core.lib(Component.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'Core.lib(Component.obj)' ou sur 'D:\School_Stuffs\Ship3D\3DShip\Debug\vc120.pdb' ; l'objet sera lié sans informations de débogage
-     1>Core.lib(Engine.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'Core.lib(Engine.obj)' ou sur 'D:\School_Stuffs\Ship3D\3DShip\Debug\vc120.pdb' ; l'objet sera lié sans informations de débogage
-     1>Core.lib(Model.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'Core.lib(Model.obj)' ou sur 'D:\School_Stuffs\Ship3D\3DShip\Debug\vc120.pdb' ; l'objet sera lié sans informations de débogage
-     1>Core.lib(PrimitiveModel.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'Core.lib(PrimitiveModel.obj)' ou sur 'D:\School_Stuffs\Ship3D\3DShip\Debug\vc120.pdb' ; l'objet sera lié sans informations de débogage
-     1>Core.lib(Sprite.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'Core.lib(Sprite.obj)' ou sur 'D:\School_Stuffs\Ship3D\3DShip\Debug\vc120.pdb' ; l'objet sera lié sans informations de débogage
-     1>Core.lib(Vertex.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'Core.lib(Vertex.obj)' ou sur 'D:\School_Stuffs\Ship3D\3DShip\Debug\vc120.pdb' ; l'objet sera lié sans informations de débogage
-         3DShip.vcxproj -> D:\School_Stuffs\Ship3D\3DShip\Debug\3DShip.exe
-     1>Génération du projet "D:\School_Stuffs\Ship3D\3DShip\3DShip\3DShip.vcxproj" terminée (Build cible(s)).
-
-La génération a réussi.
-
-Temps écoulé 00:00:01.56
+﻿D:\School\Bart-Project\Ship3D\3DShip\3DShip\Transform.fx(80,15-43): warning X3206: 'distance': implicit truncation of vector type
+D:\School\Bart-Project\Ship3D\3DShip\3DShip\Transform.fx(92,15-43): warning X3206: 'distance': implicit truncation of vector type
+FXC : warning X4717: Effects deprecated for D3DCompiler_47
+  
+  compilation object save succeeded; see D:\School\Bart-Project\Ship3D\3DShip\Debug\Transform.cso
+  Tunnel.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Score.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\school\bart-project\engine\src\core\sprite.h(20): warning C4244: 'argument' : conversion from 'LONG' to 'FLOAT', possible loss of data
+d:\school\bart-project\engine\src\core\sprite.h(26): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+d:\school\bart-project\engine\src\core\sprite.h(28): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+d:\school\bart-project\engine\src\core\sprite.h(29): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+d:\school\bart-project\ship3d\3dship\3dship\score.cpp(46): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          d:\school\vc\include\stdio.h(356) : see declaration of 'sprintf'
+  Source.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\school\bart-project\engine\src\core\sprite.h(20): warning C4244: 'argument' : conversion from 'LONG' to 'FLOAT', possible loss of data
+d:\school\bart-project\engine\src\core\sprite.h(26): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+d:\school\bart-project\engine\src\core\sprite.h(28): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+d:\school\bart-project\engine\src\core\sprite.h(29): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+  ShipRace.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\school\bart-project\engine\src\core\sprite.h(20): warning C4244: 'argument' : conversion from 'LONG' to 'FLOAT', possible loss of data
+d:\school\bart-project\engine\src\core\sprite.h(26): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+d:\school\bart-project\engine\src\core\sprite.h(28): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+d:\school\bart-project\engine\src\core\sprite.h(29): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+  Ship.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\school\bart-project\engine\src\core\sprite.h(20): warning C4244: 'argument' : conversion from 'LONG' to 'FLOAT', possible loss of data
+d:\school\bart-project\engine\src\core\sprite.h(26): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+d:\school\bart-project\engine\src\core\sprite.h(28): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+d:\school\bart-project\engine\src\core\sprite.h(29): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+  Obstacle.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Collider3D.cpp
+  BoxCollider.cpp
+  Generating Code...
+App.lib(App.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'App.lib(App.obj)' or at 'D:\School\Bart-Project\Ship3D\3DShip\Debug\vc120.pdb'; linking object as if no debug info
+App.lib(DirectInput.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'App.lib(DirectInput.obj)' or at 'D:\School\Bart-Project\Ship3D\3DShip\Debug\vc120.pdb'; linking object as if no debug info
+App.lib(GameTimer.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'App.lib(GameTimer.obj)' or at 'D:\School\Bart-Project\Ship3D\3DShip\Debug\vc120.pdb'; linking object as if no debug info
+  3DShip.vcxproj -> D:\School\Bart-Project\Ship3D\3DShip\Debug\3DShip.exe

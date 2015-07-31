@@ -26,9 +26,9 @@ public:
 	bool Contains(const float x, const float y, const float z);
 
 	// Getters
-	float GetWidth()  const { return width;  }
-	float GetHeight() const { return height; }
-	float GetDepth()  const { return depth;  }
+	float GetWidth()  const { return mWidth;  }
+	float GetHeight() const { return mHeight; }
+	float GetDepth()  const { return mDepth;  }
 
 	// Setters
 	void SetSize(const float w, const float h, const float d);
@@ -40,9 +40,9 @@ public:
 
 private:
 	// Variables for the width, height and depth of an instance of this collider.
-	float width;
-	float height;
-	float depth;
+	float mWidth;
+	float mHeight;
+	float mDepth;
 };
 
 #endif

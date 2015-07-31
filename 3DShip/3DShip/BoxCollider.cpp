@@ -3,9 +3,9 @@
 //Default Constructor, everything's set to zero.
 BoxCollider::BoxCollider()
 	:Collider3D(nullptr, Type::BOX, 0, 0, 0)
-	, width(0)
-	, height(0)
-	, depth(0)
+	, mWidth(0)
+	, mHeight(0)
+	, mDepth(0)
 {
 }
 
@@ -20,9 +20,9 @@ BoxCollider::~BoxCollider()
 // the ones that are within a certain raycast length.
 BoxCollider::BoxCollider(Component* caller, float x, float y, float z, float width, float height, float depth)
 	: Collider3D(caller, Type::BOX, x, y, z)
-	, width(abs(width))
-	, height(abs(height))
-	, depth(abs(depth))
+	, mWidth(abs(width))
+	, mHeight(abs(height))
+	, mDepth(abs(depth))
 {
 }
 
@@ -48,16 +48,16 @@ bool BoxCollider::Contains(const float x, const float y, const float z)
 // Modifies the height, width and depth of the colliders
 void BoxCollider::SetSize(float w, float h, float d)
 {
-	this->width = w;
-	this->height = h;
-	this->depth = d;
+	this->mWidth = w;
+	this->mHeight = h;
+	this->mDepth = d;
 }
 
 void BoxCollider::SetSize(D3DXVECTOR3 v)
 {
-	this->width = v.x;
-	this->height = v.y;
-	this->depth = v.z;
+	this->mWidth = v.x;
+	this->mHeight = v.y;
+	this->mDepth = v.z;
 }
 
 
