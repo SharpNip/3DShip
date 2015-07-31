@@ -35,7 +35,7 @@ private:
 	Tunnel* tunnel;
 	Ship* ship;
 	Obstacle* obstacle;
-	Sprite *test;
+	Sprite* title;
 
 	// Private variables
 	D3DXVECTOR3 mBaseCamPos;

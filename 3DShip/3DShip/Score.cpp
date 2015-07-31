@@ -1,6 +1,6 @@
 #include "Score.h"
 
-
+// Default constructor to create the score on the screen
 Score::Score()
 	: mFont(nullptr)
 	, currentScore(0.0f)
@@ -17,40 +17,36 @@ Score::Score()
 	strcpy_s(fontDesc.FaceName, _T("Times New Roman"));
 	D3DXCreateFontIndirect(gD3DDevice, &fontDesc, &mFont);
 }
-
+// Destructor that gets releases the ID3DXFont
 Score::~Score()
 {
 	ReleaseCOM(mFont);
 }
-
-void Score::Update()
-{
-	float deltaTime = gTimer->GetGameTime();
-	
-}
+// Necessary function to avoid crashing at runtime
 void Score::OnResetDevice()
 {
 	HR(mFont->OnResetDevice());
 }
+// Necessary function to avoid crashing at runtime
 void Score::OnLostDevice()
 {
 	HR(mFont->OnLostDevice());
 }
-
+// Draws the text on screen using DX's draw text function
 void Score::Draw()
 {
-	RECT fontRect;
 	::GetClientRect(gApp->GetMainWindow(), &fontRect);
-	mFont->DrawTextA(0, _T(GetScoreAsString()), 4, 
+	mFont->DrawTextA(0, _T(MakeScoreString()), 4, 
 		&fontRect, DT_LEFT | DT_BOTTOM | DT_SINGLELINE, D3DCOLOR_XRGB(1, 1, 1));
 }
-
-char* Score::GetScoreAsString()
+// Function that uses the sprintf function to create a c-style string to "push" to the drawtext function
+// snprintf could not be used.
+char* Score::MakeScoreString()
 {
 	sprintf(scoreString, "%f", currentScore);
 	return scoreString;
 }
-
+// Used by Ship to set the float in this class to its current value
 void Score::SetScore(float distanceTraveledFromShip)
 {
 	currentScore = distanceTraveledFromShip;

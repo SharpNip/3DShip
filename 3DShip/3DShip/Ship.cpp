@@ -24,7 +24,7 @@ Ship::Ship()
 	// Scale of the ship
 	SetScale(START_SCALE_X, START_SCALE_Y, START_SCALE_Z);
 
-	mCollider = new BoxCollider(this, mStartPos.x, mStartPos.y, mStartPos.z, 3, 3, 3);
+	mCollider = new BoxCollider(this, mStartPos.x, mStartPos.y, mStartPos.z, 3, 3, 1);
 	scoreboard = new Score();
 }
 
@@ -146,7 +146,6 @@ void Ship::CheckCollison()
 	{
 		if(col->GetGameObject()->GetID() == Components::OBSTACLE)
 		{
-			std::cout << "ouch";
 			mIsDead = true;
 		}
 	}

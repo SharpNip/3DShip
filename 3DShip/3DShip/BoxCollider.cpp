@@ -18,7 +18,6 @@ BoxCollider::~BoxCollider()
 // Basically copied from Pier-Luc's 2D colliders, and simply adding in a 3rd dimension -> depth.
 // This is probably not the most "optimal" way for doing it as it's going to check all of the colliders in the scene instead of checking all of 
 // the ones that are within a certain raycast length.
-// Nothing's going to be ignore.
 BoxCollider::BoxCollider(Component* caller, float x, float y, float z, float width, float height, float depth)
 	: Collider3D(caller, Type::BOX, x, y, z)
 	, width(abs(width))
@@ -27,6 +26,14 @@ BoxCollider::BoxCollider(Component* caller, float x, float y, float z, float wid
 {
 }
 
+//BoxCollider::BoxCollider(Component* caller, D3DXVECTOR3 position, D3DXVECTOR3 dimensions)
+//	: Collider3D(caller, Type::BOX, position.x, position.y, position.z)
+//	, width(abs(dimensions.x))
+//	, height(abs(dimensions.y))
+//	, depth(abs(dimensions.z))
+//{
+//
+//}
 
 // Simple check to determine if a point is within coords
 // Basically the same as in rectangle, it will check if the xyz coords are touching.
@@ -46,10 +53,17 @@ void BoxCollider::SetSize(float w, float h, float d)
 	this->depth = d;
 }
 
+void BoxCollider::SetSize(D3DXVECTOR3 v)
+{
+	this->width = v.x;
+	this->height = v.y;
+	this->depth = v.z;
+}
+
 
 // Copied from Pierluc's Rectangle algorithm.
 // 
-// But change it for a 3 dimensional shape instead.
+// But changed it for a 3 dimensional shape instead.
 
 bool BoxCollider::CollidesWith(BoxCollider* const box)
 {
@@ -63,16 +77,13 @@ bool BoxCollider::CollidesWith(BoxCollider* const box)
 	return areColliding;
 }
 
-//Based upon the tested collider, we'll look for a rectangle-circle collision or a rectangle-rectangle collision.
+// Based on the tested collider, we'll look for a rectangle-circle collision or a rectangle-rectangle collision.
 bool BoxCollider::CheckCollision(Collider3D* collider)
 {
 	bool isColliding = false;
-
 	if (collider->GetType() == Type::BOX)
 	{
 		isColliding = CollidesWith(static_cast<BoxCollider*>(collider));
 	}
-	
-
 	return isColliding;
 }

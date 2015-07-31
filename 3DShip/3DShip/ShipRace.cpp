@@ -14,9 +14,9 @@ ShipRace::ShipRace()
 	InitCamera();
 	
 	// Should be put in a startscreen class...TODO
-	test = new Sprite(Texture::ID::TEST);
-	test->SetPosition(-screenPosition, screenPosition);
-	test->SetRotationDeg(0, 180.f, 0);
+	title = new Sprite(Texture::ID::TITLE);
+	title->SetPosition(-screenPosition, screenPosition);
+	title->SetRotationDeg(0, 180.f, 0);
 }
 
 ShipRace::~ShipRace()
@@ -28,7 +28,7 @@ ShipRace::~ShipRace()
 	}
 	else
 	{
-		delete test;
+		delete title;
 	}
 }
 
@@ -74,7 +74,7 @@ void ShipRace::InitGame()
 {
 	mGameStarted = true;
 	gEngine->GetCamera()->SetCamPos(mBaseCamPos);
-	test->SetVisible(false);
+	title->SetVisible(false);
 	ship = new Ship();
 	tunnel = new Tunnel();
 	obstacle = new Obstacle();
@@ -83,8 +83,8 @@ void ShipRace::InitGame()
 // Delete everything
 void ShipRace::QuitGame()
 {
-	delete test;
-	test = nullptr;
+	delete title;
+	title = nullptr;
 	delete tunnel;
 	tunnel = nullptr;
 	delete ship;
@@ -98,7 +98,7 @@ void ShipRace::GameOver()
 {
 	gEngine->GetCamera()->SetCamPos(mScreenCamPos);
 	mGameOver = true;
-	test->SetVisible(true);
+	title->SetVisible(true);
 	ship->Kill();
 	obstacle->Kill();
 	tunnel->SetActive(false);
@@ -108,19 +108,19 @@ void ShipRace::GameOver()
 void ShipRace::RestartGame()
 {
 	gEngine->GetCamera()->SetCamPos(mBaseCamPos);
-	mGameOver = false;
-	test->SetVisible(false);
+	title->SetVisible(false);
 	ship->Activate();
 	obstacle->Activate();
 	tunnel->SetActive(true);
 	ship->scoreboard->SetActive(true);
+	mGameOver = false;
 }
 
 
 // Load the necessary assets
 void ShipRace::LoadAssets()
 {
-	Textures->LoadTexture(Texture::ID::TEST, "Starfox.png");
+	Textures->LoadTexture(Texture::ID::TITLE, "Starfox.png");
 }
 
 void ShipRace::InitCamera()

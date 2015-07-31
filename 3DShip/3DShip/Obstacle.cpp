@@ -32,13 +32,6 @@ Obstacle::~Obstacle()
 void Obstacle::Update()
 {
 	float dt = gTimer->GetDeltaTime();
-	if (gDInput->keyPressed(DIK_C))
-	{
-		std::cout << "X full: " << mCollider->GetPosition().x + this->size << std::endl;
-		std::cout << "Y full: " << mCollider->GetPosition().y + this->size << std::endl;
-		std::cout << "Z: " << mCollider->GetPosition().z << std::endl;
-	}
-	
 	// Make sure to move the obstacle.
 	MoveObstacle(dt);
 }
@@ -83,9 +76,7 @@ void Obstacle::MoveObstacle(float dt)
 	{
 		ResetPosition();
 	}
-
 	mCollider->SetPosition(this->GetPosition().x - (size / 2), this->GetPosition().y - (size / 2), this->GetPosition().z - (size / 2));
-	std::cout << "Collision: " << mCollider->GetHeight() << ", " << mCollider->GetWidth() << std::endl;
 }
 
 void Obstacle::ResetPosition()

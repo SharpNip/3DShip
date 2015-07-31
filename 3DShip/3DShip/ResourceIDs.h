@@ -14,7 +14,7 @@ namespace Texture
 {
 	enum ID
 	{
-		TEST
+		TITLE
 	};
 }
 
