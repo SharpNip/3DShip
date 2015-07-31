@@ -4,6 +4,7 @@ Ship::Ship()
 	: PrimitiveModel(PrimitiveModel_Type::CONE)
 	, mDirection(0, 0)
 	, mStartPos(0, 0, 0)
+	, mShipSize(2.5f, 2.5f, 1.0f)
 	, mLastFramePos(0, 0)
 	, mShipSpeed(START_SPEED)
 	, mCollider(nullptr)
@@ -24,7 +25,7 @@ Ship::Ship()
 	// Scale of the ship
 	SetScale(START_SCALE_X, START_SCALE_Y, START_SCALE_Z);
 
-	mCollider = new BoxCollider(this, mStartPos.x, mStartPos.y, mStartPos.z, 3, 3, 1);
+	mCollider = new BoxCollider(this, mStartPos.x, mStartPos.y, mStartPos.z, mShipSize.x, mShipSize.y, mShipSize.z);
 	scoreboard = new Score();
 }
 
@@ -46,10 +47,10 @@ void Ship::Update()
 	HandleInput(dt);
 	
 	//Increments the score
-	FancyName(dt);
+	InceaseScore(dt);
 }
 //Increments the score and sends the value to the scoreboard
-void Ship::FancyName(float distanceTraveled)
+void Ship::InceaseScore(float distanceTraveled)
 {
 	currentScore += distanceTraveled;
 	scoreboard->SetScore(currentScore);

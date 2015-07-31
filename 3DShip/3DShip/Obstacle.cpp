@@ -19,8 +19,8 @@ Obstacle::Obstacle()
 
 	// Spawn the cube at the right position.
 	SetNewPosition(myRandom);
-	SetScale(size, size, 0.1f);
-	mCollider = new BoxCollider(this, this->GetPosition().x, this->GetPosition().y, this->GetPosition().z, this->size, this->size, depth);
+	SetScale(size, size, 2.f);
+	mCollider = new BoxCollider(this, this->GetPosition().x, this->GetPosition().y, this->GetPosition().z, this->size, this->size, this->size);
 }
 
 Obstacle::~Obstacle()

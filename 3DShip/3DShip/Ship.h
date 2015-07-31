@@ -32,7 +32,7 @@ private:
 	void HandleInput(float dt);
 	void Move(float dt);
 	void CheckCollison();
-	void FancyName(float distanceTraveled);
+	void InceaseScore(float distanceTraveled);
 
 	// The ship Speed
 	int mShipSpeed;
@@ -47,6 +47,7 @@ private:
 	// Direction of the ship
 	D3DXVECTOR2 mDirection;
 	D3DXVECTOR3 mStartPos;
+	D3DXVECTOR3 mShipSize;
 
 	BoxCollider* mCollider;
 };
