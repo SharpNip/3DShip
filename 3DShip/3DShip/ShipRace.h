@@ -42,5 +42,6 @@ private:
 	D3DXVECTOR3 mScreenCamPos;
 	bool mGameOver;
 	bool mGameStarted;
+	float screenPosition;
 };
 

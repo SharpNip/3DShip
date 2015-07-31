@@ -5,6 +5,7 @@ ShipRace::ShipRace()
 	, mGameStarted(false)
 	, mGameOver(false)
 	, mScreenCamPos(0, 0, -1000)
+	, screenPosition(500)
 {
 	// Load the needed assets
 	LoadAssets();
@@ -14,7 +15,7 @@ ShipRace::ShipRace()
 	
 	// Should be put in a startscreen class...TODO
 	test = new Sprite(Texture::ID::TEST);
-	test->SetPosition(-500, 500);
+	test->SetPosition(-screenPosition, screenPosition);
 	test->SetRotationDeg(0, 180.f, 0);
 }
 
@@ -39,7 +40,7 @@ void ShipRace::Start()
 void ShipRace::Update()
 {
 	// Get the button to start the game, as the test sprite, should be put in the same class
-	if (gDInput->keyPressed(DIK_Q) && !mGameStarted)
+	if (gDInput->keyPressed(DIK_SPACE) && !mGameStarted)
 	{
 		InitGame();
 	}
