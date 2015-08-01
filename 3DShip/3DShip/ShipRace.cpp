@@ -14,7 +14,7 @@ ShipRace::ShipRace()
 	// Initialize the camera of the game
 	InitCamera();
 	
-	// Should be put in a startscreen class...TODO
+	// Setup of a "StartScreen"
 	title = new Sprite(Texture::ID::TITLE);
 	title->SetPosition(-screenPosition, screenPosition);
 	title->SetRotationDeg(0, 180.f, 0);

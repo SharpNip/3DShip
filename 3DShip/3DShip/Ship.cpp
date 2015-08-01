@@ -147,7 +147,7 @@ void Ship::Move(float dt)
 		SetPosition(tempX += mDirection.x * mShipSpeed * dt, tempY += mDirection.y * mShipSpeed * dt, GetPosition().z);
 	}
 
-	// Move thecollider accordingly to the ship
+	// Move the collider accordingly to the ship
 	mCollider->SetPosition(GetPosition().x - 1.5f, GetPosition().y - 1.5f, GetPosition().z);
 }
 
@@ -156,10 +156,10 @@ void Ship::CheckCollison()
 {
 	for each(Collider3D *col in mCollider->LookForCollisions())
 	{
-		// If we get hit by an obstcale
+		// If the ship gets hit by an obstcale
 		if(col->GetGameObject()->GetID() == Components::OBSTACLE)
 		{
-			// We die
+			// The ship dies
 			mIsDead = true;
 		}
 	}
@@ -179,7 +179,7 @@ void Ship::Kill()
 // Method to activate the ship
 void Ship::Activate()
 {
-	// Sett all to active again and revive the ship =)
+	// Set all to active again and revive the ship =)
 	scoreboard->SetActive(true);
 	mIsDead = false;
 	SetActive(true);

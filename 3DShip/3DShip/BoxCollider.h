@@ -7,6 +7,7 @@
 //		-> This class is a 3D adaption of PierLuc's 2D collider class
 //			It has the same type of behavior and collision detection as his
 //////////////////////////////////////////////////////////////////////////////
+
 class BoxCollider
 	: public Collider3D
 {
