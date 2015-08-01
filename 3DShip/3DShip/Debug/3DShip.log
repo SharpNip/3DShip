@@ -1,34 +1,14 @@
-﻿Build started 2015-07-31 20:26:42.
-     1>Project "G:\S3\ProgAvancée2\Ship3D\3DShip\3DShip\3DShip.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Ship.cpp ShipRace.cpp
-         ShipRace.cpp
-         c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-     1>g:\s3\progavancée2\engine\src\core\sprite.h(20): warning C4244: 'argument' : conversion from 'LONG' to 'FLOAT', possible loss of data
-     1>g:\s3\progavancée2\engine\src\core\sprite.h(26): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>g:\s3\progavancée2\engine\src\core\sprite.h(28): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>g:\s3\progavancée2\engine\src\core\sprite.h(29): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-         Ship.cpp
-         c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-     1>g:\s3\progavancée2\engine\src\core\sprite.h(20): warning C4244: 'argument' : conversion from 'LONG' to 'FLOAT', possible loss of data
-     1>g:\s3\progavancée2\engine\src\core\sprite.h(26): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>g:\s3\progavancée2\engine\src\core\sprite.h(28): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>g:\s3\progavancée2\engine\src\core\sprite.h(29): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-         Generating Code...
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"G:\S3\ProgAvancée2\Ship3D\3DShip\Debug\3DShip.exe" /INCREMENTAL /NOLOGO d3d9.lib d3dx9d.lib dxguid.lib dxerr.lib dinput8.lib irrklang.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"G:\S3\ProgAvancée2\Ship3D\3DShip\Debug\3DShip.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\S3\ProgAvancée2\Ship3D\3DShip\Debug\3DShip.lib" /MACHINE:X86 Debug\BoxCollider.obj
-         Debug\Collider3D.obj
-         Debug\Obstacle.obj
-         Debug\Ship.obj
-         Debug\ShipRace.obj
-         Debug\Source.obj
-         Debug\Score.obj
-         Debug\Tunnel.obj
-         "G:\S3\ProgAvancée2\Ship3D\3DShip\Debug\App.lib"
-         "G:\S3\ProgAvancée2\Ship3D\3DShip\Debug\Core.lib"
-         3DShip.vcxproj -> G:\S3\ProgAvancée2\Ship3D\3DShip\Debug\3DShip.exe
-     1>Done Building Project "G:\S3\ProgAvancée2\Ship3D\3DShip\3DShip\3DShip.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:02.46
+﻿  Source.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\school\bart-project\engine\src\core\sprite.h(20): warning C4244: 'argument' : conversion from 'LONG' to 'FLOAT', possible loss of data
+d:\school\bart-project\engine\src\core\sprite.h(26): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+d:\school\bart-project\engine\src\core\sprite.h(28): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+d:\school\bart-project\engine\src\core\sprite.h(29): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+  ShipRace.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\school\bart-project\engine\src\core\sprite.h(20): warning C4244: 'argument' : conversion from 'LONG' to 'FLOAT', possible loss of data
+d:\school\bart-project\engine\src\core\sprite.h(26): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+d:\school\bart-project\engine\src\core\sprite.h(28): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+d:\school\bart-project\engine\src\core\sprite.h(29): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+  Generating Code...
+  3DShip.vcxproj -> D:\School\Bart-Project\Ship3D\3DShip\Debug\3DShip.exe

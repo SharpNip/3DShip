@@ -133,3 +133,16 @@ void ShipRace::InitCamera()
 	// Test for sprite on screen
 	gEngine->GetCamera()->SetCamPos(mScreenCamPos);
 }
+
+void ShipRace::Start()
+{
+
+}
+void ShipRace::Stop()
+{
+
+}
+void ShipRace::Draw()
+{
+
+}
