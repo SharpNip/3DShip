@@ -1,7 +1,4 @@
 #pragma once
-
-#define CAM_POS gEngine->GetCamera()->GetCamPos()
-
 #include "ResourceIDs.h"
 #include "TriGrid.h"
 #include "Tunnel.h"
@@ -14,6 +11,9 @@
 //			This is where we check the game states and the gameOver and such
 //			
 /////////////////////////////////////////////////////////////////
+
+#define CAM_POS gEngine->GetCamera()->GetCamPos()
+
 class ShipRace
 	: public Component
 {

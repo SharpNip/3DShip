@@ -42,6 +42,7 @@ void Obstacle::Update()
 	// Moves the obstacle toward the camera
 	MoveObstacle(dt);
 }
+
 // Sets a new position for the cube, using a random int
 void Obstacle::SetNewPosition(int random)
 {

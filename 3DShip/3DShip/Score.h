@@ -8,6 +8,7 @@
 //		-> This class takes care of creating a score at the bottom
 //			right of the screen, and updates using the ship's score
 ////////////////////////////////////////////////////////////////////
+
 class Score
 	: public Component
 {
