@@ -1,14 +1,12 @@
 #ifndef BoxCollider_HPP
 #define BoxCollider_HPP
 #include "Collider3D.h"
-//#include "SphereCollider.h" -> This is to be replaced with SphereCollider once it's been made
 
 /////////////////////////////////////////////////////////////////////////////
 // Box Collider Class:
 //		-> This class is a 3D adaption of PierLuc's 2D collider class
 //			It has the same type of behavior and collision detection as his
 //////////////////////////////////////////////////////////////////////////////
-
 class BoxCollider
 	: public Collider3D
 {

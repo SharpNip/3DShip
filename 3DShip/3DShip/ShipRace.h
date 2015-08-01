@@ -8,6 +8,12 @@
 #include "Ship.h"
 #include "Obstacle.h"
 
+///////////////////////////////////////////////////////////
+// ShipRace Class:
+//		-> This is the main class where the game takes form
+//			This is where we check the game states and the gameOver and such
+//			
+/////////////////////////////////////////////////////////////////
 class ShipRace
 	: public Component
 {

@@ -1,5 +1,6 @@
 #include "ShipRace.h"
 
+// Default Ctor
 ShipRace::ShipRace()
 	: mBaseCamPos(0, 0, 0)
 	, mGameStarted(false)
@@ -19,59 +20,59 @@ ShipRace::ShipRace()
 	title->SetRotationDeg(0, 180.f, 0);
 }
 
+// Dtor
 ShipRace::~ShipRace()
 {
-	// If the game is not started only delete the ncessary stuffs
+	// If the game is not started only delete the necessary stuffs
 	if (mGameStarted)
 	{
+		// Delete everything
 		QuitGame();
 	}
 	else
 	{
+		// Delete titlescren
 		delete title;
 	}
 }
 
-void ShipRace::Start()
-{
-
-}
-
+// Handle the gameflow, start, restartm die...etc.
 void ShipRace::Update()
 {
-	// Get the button to start the game, as the test sprite, should be put in the same class
+	// Get the button to start the game if the game is not already started...Meh !
 	if (gDInput->keyPressed(DIK_SPACE) && !mGameStarted)
 	{
+		// Init the game
 		InitGame();
 	}
 	
-	if (mGameStarted)
+	// If gameOver...
+	if (!mGameOver)
 	{
-		if (ship->GetIsDead() && !mGameOver)
+		// and the game is started...
+		if (mGameStarted)
 		{
-			GameOver();
+			// and the ship is dead
+			if (ship->GetIsDead())
+			{
+				// Gameover !
+				GameOver();
+			}
 		}
 	}
-	
-	if (mGameOver && gDInput->keyPressed(DIK_SPACE) && mGameStarted)
+	// Else if space is pressed and it is gameover
+	else if (gDInput->keyPressed(DIK_SPACE) && mGameOver)
 	{
+		// Restart the game
 		RestartGame();
 	}
-}
-
-void ShipRace::Draw()
-{
-
-}
-
-void ShipRace::Stop()
-{
-
+	
 }
 
 // Init all the games variables
 void ShipRace::InitGame()
 {
+	mGameOver = false;
 	mGameStarted = true;
 	gEngine->GetCamera()->SetCamPos(mBaseCamPos);
 	title->SetVisible(false);
@@ -93,27 +94,26 @@ void ShipRace::QuitGame()
 	obstacle = nullptr;
 }
 
-// Methods for the restart game
+// Method for the gameOver
 void ShipRace::GameOver()
 {
-	gEngine->GetCamera()->SetCamPos(mScreenCamPos);
 	mGameOver = true;
+	gEngine->GetCamera()->SetCamPos(mScreenCamPos);
 	title->SetVisible(true);
 	ship->Kill();
 	obstacle->Kill();
 	tunnel->SetActive(false);
-	ship->scoreboard->SetActive(false);
 }
 
+// Method to restart the game
 void ShipRace::RestartGame()
 {
+	mGameOver = false;
 	gEngine->GetCamera()->SetCamPos(mBaseCamPos);
 	title->SetVisible(false);
 	ship->Activate();
 	obstacle->Activate();
 	tunnel->SetActive(true);
-	ship->scoreboard->SetActive(true);
-	mGameOver = false;
 }
 
 

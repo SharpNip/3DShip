@@ -2,6 +2,7 @@
 #include "Sprite.h"
 #include "Utils.h"
 #include <stdio.h>
+
 ////////////////////////////////////////////////////////////////
 // Score Class:
 //		-> This class takes care of creating a score at the bottom

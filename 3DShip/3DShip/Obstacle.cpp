@@ -93,6 +93,7 @@ void Obstacle::ResetPosition()
 	myRandom = rand() % 4;
 	depth = startingDepth;
 	SetNewPosition(myRandom);
+	mCollider->SetPosition(this->GetPosition().x - (size / 2), this->GetPosition().y - (size / 2), this->GetPosition().z);
 }
 // Used when the game is "paused"
 void Obstacle::Kill()
